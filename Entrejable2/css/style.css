@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+nav ul {
+    list-style:none;
+}
+body{
+    background: #684FC0;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Alata';
+    font-style: normal;
+    color: #F5F5F5;
+}
+p{
+    font-family: 'Mukta';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+}
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 32px;
+}
+h3{
+    font-size: 20px;
+}
+h4{
+    font-size: 16px;
+}
