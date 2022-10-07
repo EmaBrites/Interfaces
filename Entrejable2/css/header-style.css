@@ -23,8 +23,7 @@ header div{
 
 nav ul{
     display: flex;
-    list-style-type:none;
-    color: var(--blanco) !important;
+    color: var(--blanco);
 }
 
 nav a{

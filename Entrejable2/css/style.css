@@ -7,31 +7,46 @@
     vertical-align:baseline;
     background:transparent;
 }
+
+:root{
+    --principal: #4C6FBB;
+    --secundario: #684FC0;
+    --blanco: #F5F5F5;
+
+}
+
 nav ul {
     list-style:none;
 }
+
 body{
-    background: #684FC0;
+    background: var(--secundario);
 }
+
 h1,h2,h3,h4,h5,h6{
     font-family: 'Alata';
     font-style: normal;
-    color: #F5F5F5;
+    color: var(--blanco);
 }
+
 p{
     font-family: 'Mukta';
     font-style: normal;
     font-size: 16px;
 }
+
 h1{
     font-size: 40px;
 }
+
 h2{
     font-size: 32px;
 }
+
 h3{
     font-size: 20px;
 }
+
 h4{
     font-size: 16px;
 }
