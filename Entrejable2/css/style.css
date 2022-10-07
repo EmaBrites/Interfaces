@@ -6,6 +6,7 @@
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    color:var(--blanco);
 }
 
 :root{
@@ -14,9 +15,10 @@
     --blanco: #F5F5F5;
     --acento-2: #D9930C;
     --acento-1: #FCB833;
+    --max-width-container: 1440px;
 }
 
-nav ul {
+ul {
     list-style:none;
 }
 
