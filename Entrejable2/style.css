@@ -1,0 +1,47 @@
+
+:root{
+    --principal: #4C6FBB;
+    --blanco: #F5F5F5;
+    --main: 
+}
+
+header{
+    width: 1440px;
+    height: 100px;
+    background-color: var(--principal);
+    display: flex;
+    align-items: center;
+    justify-content:space-around
+}
+
+header div{
+    display: flex;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    list-style-type:none;
+    color: var(--blanco) !important;
+}
+
+nav h3{
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+nav a{
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+#burger-menu{
+    width: 30px;
+    height: 30px;
+    justify-self: flex-start;
+    margin-left: 25px;
+}
