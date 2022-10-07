@@ -12,7 +12,8 @@
     --principal: #4C6FBB;
     --secundario: #684FC0;
     --blanco: #F5F5F5;
-
+    --acento-2: #D9930C;
+    --acento-1: #FCB833;
 }
 
 nav ul {
@@ -33,6 +34,7 @@ p{
     font-family: 'Mukta';
     font-style: normal;
     font-size: 16px;
+    color: var(--blanco);
 }
 
 h1{
