@@ -1,0 +1,41 @@
+@import "./assets/style.css";
+
+header{
+    width: 1440px;
+    height: 100px;
+    background-color: var(--principal);
+    display: flex;
+    align-items: center;
+    justify-content:space-around
+}
+
+.burger-menu{
+    width: 30px;
+    height: 30px;
+    justify-self: flex-start;
+    margin-left: 25px;
+}
+
+header div{
+    display: flex;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    list-style-type:none;
+    color: var(--blanco) !important;
+}
+
+nav a{
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+nav h3{
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
