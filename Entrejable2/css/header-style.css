@@ -1,7 +1,7 @@
 @import "./assets/style.css";
 
 header{
-    width: 1440px;
+    width: var(--max-width-container);
     height: 100px;
     background-color: var(--principal);
     display: flex;
@@ -23,11 +23,9 @@ header div{
 
 nav ul{
     display: flex;
-    color: var(--blanco);
 }
 
 nav a{
-    color: var(--blanco);
     text-decoration: none;
 }
 
