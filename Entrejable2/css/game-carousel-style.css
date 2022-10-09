@@ -1,0 +1,21 @@
+@import "./general-style.css";
+
+.game-carousel{
+    overflow-x: hidden;
+    white-space: nowrap;
+    transition: all 0.2s;
+    will-change: transform;
+    cursor: pointer;
+    width: var(--max-width-container);
+    display: flex;
+}
+
+.game-carousel .game-card{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.game-carousel.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
