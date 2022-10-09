@@ -1,15 +1,5 @@
 @import "./assets/style.css";
 
-/* nav{
-    background-color: var(--principal);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-} */
-
 nav{
     width: 100%;
     background-color: var(--principal);
