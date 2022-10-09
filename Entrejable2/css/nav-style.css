@@ -1,12 +1,25 @@
 @import "./assets/style.css";
 
-nav{
-    width: var(--max-width-container);
-    height: 100px;
+/* nav{
     background-color: var(--principal);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+} */
+
+nav{
+    width: 100%;
+    background-color: var(--principal);
+    height: 100px;
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .burger-menu{
@@ -25,6 +38,10 @@ nav div{
     align-items: center;
 }
 
+nav div:first-child{
+    margin-left: 20px;
+}
+
 div.nav-categories ul{
     display: flex;
 }
@@ -39,4 +56,6 @@ div.nav-categories h3{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 25px;
+    margin-right: 25px;
 }

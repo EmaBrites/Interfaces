@@ -13,9 +13,11 @@
     --principal: #4C6FBB;
     --principal-menos1:#6F8ED1;
     --secundario: #684FC0;
+    --secundario-2: #351995;
     --blanco: #F5F5F5;
     --acento-2: #D9930C;
     --acento-1: #FCB833;
+    --acento: #FFC656;
     --max-width-container: 1440px;
     --menu-display: none;
 }
@@ -26,12 +28,40 @@ ul {
 
 body{
     background-color: var(--secundario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1,h2,h3,h4,h5,h6{
     font-family: 'Alata';
     font-style: normal;
     color: var(--blanco);
+}
+
+h2{
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+section:not(footer section){
+    margin-bottom: 40px;
+}
+
+section.highlighted-carousel{
+    background-color: var(--secundario-2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+section.highlighted-carousel h2{
+    color: var(--acento);
+    width: 1200px;
+    align-self: center;
 }
 
 p{

@@ -6,7 +6,7 @@
     transition: all 0.2s;
     will-change: transform;
     cursor: pointer;
-    width: var(--max-width-container);
+    width: 1200px;
     display: flex;
 }
 
