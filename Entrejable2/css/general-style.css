@@ -33,6 +33,10 @@ body{
     align-items: center;
 }
 
+p, li{
+    font-family: 'Ek Mukta';
+}
+
 h1,h2,h3,h4,h5,h6{
     font-family: 'Alata';
     font-style: normal;
