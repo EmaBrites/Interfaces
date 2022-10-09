@@ -9,6 +9,7 @@ menu{
     left: 0;
     display: none;
     grid-template-rows: 0.5fr 3fr 1fr 1fr;
+    z-index: 1;
 }
 
 menu h2{

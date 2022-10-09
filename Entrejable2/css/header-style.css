@@ -1,0 +1,22 @@
+@import "./general-style.css";
+
+header{
+    width: var(--max-width-container);
+    height: 500px;
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+header img{
+    position: absolute;
+}
+
+header h1{
+    z-index: 0;
+    margin-bottom: 50px;
+}
