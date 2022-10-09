@@ -1,6 +1,6 @@
 @import "./assets/style.css";
 
-header{
+nav{
     width: var(--max-width-container);
     height: 100px;
     background-color: var(--principal);
@@ -20,20 +20,20 @@ header{
     cursor: pointer;
 }
 
-header div{
+nav div{
     display: flex;
     align-items: center;
 }
 
-nav ul{
+div.nav-categories ul{
     display: flex;
 }
 
-nav a{
+div.nav-categories a{
     text-decoration: none;
 }
 
-nav h3{
+div.nav-categories h3{
     width: 140px;
     height: 40px;
     display: flex;
