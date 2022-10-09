@@ -1,42 +1,22 @@
-@import "./assets/style.css";
+@import "./general-style.css";
 
 header{
     width: var(--max-width-container);
-    height: 100px;
-    background-color: var(--principal);
+    height: 500px;
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content:space-around;
-}
-
-.burger-menu{
-    width: 30px;
-    height: 30px;
-    justify-self: flex-start;
-    margin-left: 25px;
-}
-
-.burger-menu:hover{
-    cursor: pointer;
-}
-
-header div{
+    margin-top: 10px;
+    margin-bottom: 20px;
     display: flex;
-    align-items: center;
-}
-
-nav ul{
-    display: flex;
-}
-
-nav a{
-    text-decoration: none;
-}
-
-nav h3{
-    width: 140px;
-    height: 40px;
-    display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+}
+
+header img{
+    position: absolute;
+}
+
+header h1{
+    z-index: 0;
+    margin-bottom: 50px;
 }

@@ -1,0 +1,42 @@
+@import "./assets/style.css";
+
+nav{
+    width: var(--max-width-container);
+    height: 100px;
+    background-color: var(--principal);
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.burger-menu{
+    width: 30px;
+    height: 30px;
+    justify-self: flex-start;
+    margin-left: 25px;
+}
+
+.burger-menu:hover{
+    cursor: pointer;
+}
+
+nav div{
+    display: flex;
+    align-items: center;
+}
+
+div.nav-categories ul{
+    display: flex;
+}
+
+div.nav-categories a{
+    text-decoration: none;
+}
+
+div.nav-categories h3{
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
