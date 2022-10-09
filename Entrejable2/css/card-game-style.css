@@ -6,6 +6,11 @@
     width: var(--card-width);
 }
 
+.game-card h3{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+
 .game-card div, .game-card h3:not(.play-buy-button h3){
     margin-top: var(--margin-top);
 }
