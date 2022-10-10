@@ -1,7 +1,7 @@
 @import "./style.css";
 
 .game-card{
-    --card-width:200px;
+    --card-width:100px;
     --margin-top: 13px;
     width: var(--card-width);
 }
@@ -50,4 +50,14 @@
 
 .play-buy-button h3{
     display: var(--display-text);
+}
+
+.game-card > img{
+    width: var(--card-width);
+}
+
+@media (min-width:1440px) {
+    .game-card{
+        --card-width: 200px;
+    }
 }
