@@ -68,7 +68,23 @@ menu .close-btn:hover{
         width: 400px;
         height: 300px;
         grid-template-rows: 0.5fr 3fr 1fr 1fr;
-        z-index: 1;
+    }
+}
+
+@media (min-width:1025px) {
+    menu{
+        height: 600px;
     }
 
+    menu div:nth-child(1) img{
+        width: unset;
+    }
+
+    menu h2{
+        margin: 30px;
+    }
+
+    menu h2:first-child{
+        margin-top: 0;
+    }
 }

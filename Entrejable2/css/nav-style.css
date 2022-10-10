@@ -69,3 +69,9 @@ nav div{
         margin-left: 25px;
     }
 }
+
+@media (min-width:1025px) {
+    div.nav-categories h3{
+        width: 140px;
+    }
+}
