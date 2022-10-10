@@ -17,8 +17,9 @@ footer div:first-child{
 footer div:first-child section:first-child{
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
     align-items: flex-start;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 footer div:first-child section:nth-child(2){
