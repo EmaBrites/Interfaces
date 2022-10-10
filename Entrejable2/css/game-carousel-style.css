@@ -1,12 +1,13 @@
 @import "./general-style.css";
 
 .game-carousel{
-    overflow-x: hidden;
+    overflow-x: scroll;
     white-space: nowrap;
     transition: all 0.2s;
     will-change: transform;
     cursor: pointer;
-    width: 1200px;
+    width: 90%;
+    max-width: 1200px;
     display: flex;
 }
 
@@ -18,4 +19,11 @@
 .game-carousel.active {
     cursor: grabbing;
     cursor: -webkit-grabbing;
+}
+
+@media (min-width:1024px) {
+    .game-carousel{
+        overflow-x: hidden;
+
+    }
 }
