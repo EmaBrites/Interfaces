@@ -8,13 +8,15 @@ footer{
 }
 
 footer div:first-child{
-    width: var(--max-width-container);
-    height: 200px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "caterogies"
+    "redes";
 }
 
 footer div:first-child section:first-child{
+    grid-area: "caterogies";
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -23,6 +25,7 @@ footer div:first-child section:first-child{
 }
 
 footer div:first-child section:nth-child(2){
+    grid-area: "redes";
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,6 +47,36 @@ footer div:first-child img{
 
 .redes-footer img{
     margin-top: 20px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+footer article{
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+}
+
+footer li{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80px;
+    white-space: nowrap;
+}
+
+@media (min-width:769px) {
+    footer article{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    footer li{
+        width: unset;
+    }
+}
+
+@media (min-width:1025px) {
+    footer div:first-child{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+        "caterogies redes";
+    }
 }
