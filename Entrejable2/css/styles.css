@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Ek%20Mukta);
+@import url(https://fonts.googleapis.com/css?family=Alata);
 @import "./spinner-style.css";
 @import "./general-style.css";
 @import "./nav-style.css";
@@ -7,3 +9,6 @@
 @import "./card-game-style.css";
 @import "./game-carousel-style.css";
 @import "./footer-style.css";
+@import "./hero-secction.css";
+@import "./feature-card.css";
+@import "./breadcrumbs.css";

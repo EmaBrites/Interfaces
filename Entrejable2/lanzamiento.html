@@ -6,43 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lanzamiento</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <header>
-        <a href="index.html"><img src="" alt="Logo de GGames"></a>
-        <img src="" alt="Menu hamburguesa">
-        <nav>
+    <nav>
+        <div>
+            <a href="index.html"><img src="./assets/logo.png" alt="Logo de GGames"></a>
+            <img class="burger-menu" src="./assets/burger-menu.png" alt="Menu hamburguesa">
+        </div>
+        <div class="nav-categories">
             <ul>
-                <li><a href="">Juega ahora</a></li>
-                <li><a href="">Deportes</a></li>
-                <li><a href="">Acción</a></li>
-                <li><a href="">Aventura</a></li>
-                <li><a href="">Clasicos</a></li>
-                <li><a href="">RPG</a></li>
+                <li><a href="#play-now"><h3>Juega ahora</h3></a></li>
+                <li><a href="#sports"><h3>Deportes</h3></a></li>
+                <li><a href="#action"><h3>Acción</h3></a></li>
+                <li><a href="#adventure"><h3>Aventura</h3></a></li>
+                <li><a href="#classics"><h3>Clasicos</h3></a></li>
+                <li><a href="#rpg"><h3>RPG</h3></a></li>
             </ul>
-    </header>
-    <main>
-        <section>
+        </div>
+        <menu>
             <div>
-                <img src="" alt="Fondo">
-                <img src="" alt="Personaje">
-                <img src="" alt="Logo juego">
-                <h1>Proximamente!</h1>
-                <p>Suscribete para más novedades</p>
-                <input type="text" name="" id="">
-                <button type="submit"></button>
+                <img class="close-btn" src="./assets/close.png" alt="instagram">
             </div>
-            <h3>Un cataclismo ha sumido las tierras de Thedas en el caos. Los dragones cubren el cielo y proyectan una
+            <div>
+                <h2>Inicio</h2>
+                <h2>Categorias</h2>
+                <h2>Biblioteca de juegos</h2>
+            </div>
+
+            <div>
+                <img src="./assets/usuario.png" alt="instagram">
+                <h3>Cerrar Sesión</h3>
+            </div>
+
+            <div class="redes-menu">
+                <img src="./assets/Redes/instagram.png" alt="instagram">
+                <img src="./assets/Redes/twitter.png" alt="twitter">
+                <img src="./assets/Redes/facebook.png" alt="facebook">
+            </div>
+        </menu>
+    </nav>
+    <main>
+        <div class="breadcrumbs"></div>
+        <section>
+            <div class="hero">
+                <!-- <img class="background" src="./assets/capa-fondo.jpg" alt="Fondo"> -->
+                <div class="background"></div>
+                <img class="character" src="./assets/capa-personaje.png" alt="Personaje">
+                <div class="action">
+                    <img class="logo" src="./assets/capa-logo.png" alt="Logo juego">
+                    <h1>Proximamente!</h1>
+                    <p>Suscribete para más novedades</p>
+                    <input type="text" name="email" id="email" placeholder="email">
+                    <button type="submit"><img src="./assets/enviar.png" alt=""></button>
+                </div>
+            </div>
+            <h3 class="text">Un cataclismo ha sumido las tierras de Thedas en el caos. Los dragones cubren el cielo y proyectan una
                 sombra sobre las tierras que están al borde del caos. Los magos declaran la guerra total contra los
                 templarios. Las naciones se alzan unas contra otras. Como líder de la Inquisición, de ti depende
-                restablecer el orden y acabar con los agentes de la entropía.</h3>
-            <h3>Explora, lidera y combate: unas decisiones complicadas definirán tu aventura, pues una única elección
+                restablecer el orden y acabar con los agentes de la entropía.
+                Explora, lidera y combate: unas decisiones complicadas definirán tu aventura, pues una única elección
                 podría cambiar el rumbo de lo que está por suceder.</h3>
         </section>
-        <section>
-            <div>
+        <section class="feature">
+            <div class="feature-card">
+                <img src="./assets/feature1.png" alt="">
                 <h1>Una narrativa cautivadora y basada en decisiones</h1>
                 <p>En Inquisition, no solo determinas a quién enviar y a cuál batalla, también tomarás decisiones
                     importantes que forjarán el futuro de Thedas. Cada decisión tiene sus implicaciones y tus actos
@@ -50,14 +79,16 @@
                     mala elección podría desencadenar una serie de eventos que alteren los aspectos físicos del mundo
                     mismo; esto hace que tu mundo de Thedas, y tus héroes, sean realmente únicos.</p>
             </div>
-            <div>
+            <div class="feature-card">
+                <img src="./assets/feature2.png" alt="">
                 <h1>Un mundo enorme por descubrir</h1>
                 <p>El mundo de Thedas nunca había sido tan grande o detallado; es súper amplio y está listo para que lo
                     explores. Descubre castillos enemigos y apodérate de ellos. Desentierra cuevas ocultas infestadas de
                     criaturas acechantes. Thedas es un mundo vasto y peligroso, pero descubrir sus secretos puede hacer
                     la diferencia entre la victoria y la derrota.</p>
             </div>
-            <div>
+            <div class="feature-card">
+                <img src="./assets/feature3.png" alt="">
                 <h1>Combate intenso y estratégico</h1>
                 <p>No hay una forma incorrecta de jugar a Dragon Age: Inquisition... excepto por la manera en que
                     pierdes la vida. Por suerte, la vista de estrategias opcional te da una ventaja omnisciente en la
@@ -70,39 +101,51 @@
         </section>
     </main>
     <footer>
-        <nav>
-            <h3>Categoria</h3>
-            <ul>
-                <li><a href="">Más populares</a></li>
-                <li><a href="">Juega ahora</a></li>
-                <li><a href="">Mejoras 10 pagos</a></li>
-                <li><a href="">Mejoras 10 gratis</a></li>
-            </ul>
-            <h3>De Interés</h3>
-            <ul>
-                <li><a href="">Preguntas frecuentes</a></li>
-                <li><a href="">Reglas</a></li>
-                <li><a href="">Noticias</a></li>
-            </ul>
-            <h3>Legales</h3>
-            <ul>
-                <li><a href="">Términos de uso</a></li>
-                <li><a href="">Prividad</a></li>
-                <li><a href="">Cookies</a></li>
-            </ul>
-            <h3>Comunidad</h3>
-            <ul>
-                <li><a href="">Foro</a></li>
-                <li><a href="">Ayuda</a></li>
-            </ul>
-        </nav>
         <div>
-            <a href=""><img src="" alt="Logo GGames"></a>
-            <a href=""><img src="" alt="Instagram"></a>
-            <a href=""><img src="" alt="Twitter"></a>
-            <a href=""><img src="" alt="Facebook"></a>
+            <section>
+                <article>
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li>Más populares</li>
+                        <li>Juega ahora</li>
+                        <li>Mejores 10 pagos</li>
+                        <li>Mejores 10 gratis</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>De interés</h3>
+                    <ul>
+                        <li>Preguntas frecuentes</li>
+                        <li>Reglas</li>
+                        <li>Noticias</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Legales</h3>
+                    <ul>
+                        <li>Términos de uso</li>
+                        <li>Privacidad</li>
+                        <li>Cookies</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Comunidad</h3>
+                    <ul>
+                        <li>Foro</li>
+                        <li>Ayuda</li>
+                    </ul>
+                </article>
+            </section>
+            <section>
+                <img src="./assets/logo.png" alt="instagram">
+                <div class="redes-footer">
+                    <img src="./assets/Redes/instagram.png" alt="instagram">
+                    <img src="./assets/Redes/twitter.png" alt="twitter">
+                    <img src="./assets/Redes/facebook.png" alt="facebook">
+                </div>
+            </section>
         </div>
     </footer>
 </body>
-
+<script defer src="./javascript/menu.js"></script>
 </html>

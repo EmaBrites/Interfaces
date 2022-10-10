@@ -13,12 +13,13 @@
     --principal: #4C6FBB;
     --principal-menos1:#6F8ED1;
     --secundario: #684FC0;
+    --secundario1: #4F33AE;
     --secundario-2: #351995;
     --blanco: #F5F5F5;
     --acento-2: #D9930C;
     --acento-1: #FCB833;
     --acento: #FFC656;
-    --max-width-container: 1440px;
+    --max-width-container: 100%;
     --menu-display: none;
 }
 
