@@ -15,6 +15,9 @@ header{
     header img{
         width: inherit;
     }
+    header h1{
+        margin-bottom: 20px;
+    }
 }
 
 @media (min-width:1440px) {

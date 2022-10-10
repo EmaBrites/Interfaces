@@ -1,0 +1,9 @@
+.game-release{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.game-release img{
+    width: inherit;
+    max-width: 1000px;
+}
