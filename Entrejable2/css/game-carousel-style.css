@@ -11,6 +11,10 @@
     display: flex;
 }
 
+section .game-carousel{
+    width: 90%;
+}
+
 .game-carousel .game-card{
     margin-left: 7px;
     margin-right: 7px;
@@ -24,6 +28,5 @@
 @media (min-width:1024px) {
     .game-carousel{
         overflow-x: hidden;
-
     }
 }
