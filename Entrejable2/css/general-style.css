@@ -75,7 +75,7 @@ p{
     color: var(--blanco);
 }
 
-@media (min-width:1024px) {
+@media (min-width:1025px) {
     h1{
         font-size: 40px;
     }
