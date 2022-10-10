@@ -75,18 +75,21 @@ p{
     color: var(--blanco);
 }
 
-h1{
-    font-size: 40px;
+@media (min-width:1024px) {
+    h1{
+        font-size: 40px;
+    }
+    
+    h2{
+        font-size: 32px;
+    }
+    
+    h3{
+        font-size: 20px;
+    }
+    
+    h4{
+        font-size: 16px;
+    }
 }
 
-h2{
-    font-size: 32px;
-}
-
-h3{
-    font-size: 20px;
-}
-
-h4{
-    font-size: 16px;
-}

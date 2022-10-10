@@ -2,26 +2,30 @@
 
 menu{
     background-color: var(--principal-menos1);
-    width: 400px;
-    height: 600px;
+    width: 100%;
     position: absolute;
     top:0;
     left: 0;
     display: none;
-    grid-template-rows: 0.5fr 3fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr;
     z-index: 1;
 }
 
 menu h2{
-    margin: 30px;
-}
-menu h2:first-child{
-    margin-top: 0;
+    margin-left: 30px;
 }
 
 menu div:nth-child(1){
     display: flex;
     justify-content: end;
+}
+
+menu div:nth-child(1) img{
+    width: 20px;
+}
+
+menu div:nth-child(3) img{
+    width: 50px;
 }
 
 menu div:nth-child(1) img{
