@@ -10,10 +10,16 @@ nav{
     position: sticky;
     top: 0;
     z-index: 1;
+    --nav-caterories: none;
 }
 
 .nav-categories{
-    display: none;
+    display: var(--nav-caterories);
+}
+
+.nav-categories ul{
+    display: flex;
+    
 }
 
 .burger-menu{
@@ -31,4 +37,35 @@ nav{
 nav div{
     display: flex;
     align-items: center;
+}
+
+@media (min-width:769px) {
+    nav{
+        --nav-caterories: block;
+        justify-content: space-between;
+    }
+
+    div.nav-categories a{
+        text-decoration: none;
+    }
+
+    div.nav-categories h3{
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    nav div:first-child{
+        margin-left: 20px;
+    }
+
+    .burger-menu{
+        width: 30px;
+        height: 30px;
+        position: unset;
+        margin-left: 25px;
+    }
 }

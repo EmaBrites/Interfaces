@@ -62,3 +62,13 @@ menu div:nth-child(4){
 menu .close-btn:hover{
     cursor: pointer;
 }
+
+@media (min-width:769px) {
+    menu{
+        width: 400px;
+        height: 300px;
+        grid-template-rows: 0.5fr 3fr 1fr 1fr;
+        z-index: 1;
+    }
+
+}
