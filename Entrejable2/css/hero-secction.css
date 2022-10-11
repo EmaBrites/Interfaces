@@ -1,9 +1,6 @@
 .hero {
     width: var(--max-width-container);
     height: 600px;
-    overflow: hidden;
-    display: block;
-    object-fit: cover;
 }
 
 .hero * {
@@ -36,29 +33,21 @@
 .logo {
     width: 370.39px;
     height: 100px;
-    left: 900px;
-    top: 297px;
 }
 
 .hero h1 {
     width: 276px;
     height: 55px;
-    left: 947px;
-    top: 397px;
 }
 
 .hero p {
     width: 211px;
     height: 27px;
-    left: 980px;
-    top: 457px;
 }
 
 .hero input {
     width: 246px;
     height: 30px;
-    left: 947px;
-    top: 497px;
 
     background: var(--secundario1);
 }
@@ -66,25 +55,25 @@
 .hero button {
     width: 30px;
     height: 30px;
-    left: 1193px;
-    top: 497px;
 
     background: var(--acento-1);
 }
 
 .action button img {
-    display: block;
     width: 20px;
     height: 20px;
-    top: 5px;
-    left: 5px;
 }
 
 .action{
-    display: block;
-    position: relative;
-    right: 10%;
-    top: -20%;
+    display:flex;
+    right: 200px;
+    top: 300px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action *{
+    position: static;
 }
 
 section .text{
