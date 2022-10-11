@@ -7,28 +7,26 @@
 .feature-card {
     width: 80%;
     height: 400px;
+    margin: 10px;
 }
 
 .feature-card h1 {
     position: relative;
-    left: 5%;
-    top: -80%;
+    left: 50px;
+    top: -350px;
     color: var(--acento);
     width: 90%;
 }
 
 .feature-card p{
     position: relative;
-    left: 10%;
-    top: -60%;
+    left: 100px;
+    top: -300px;
     width: 80%;
 }
 
 .feature-card img{
     z-index: -1;
-    position: relative;
-    top:0px;
-    left: 0px;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
