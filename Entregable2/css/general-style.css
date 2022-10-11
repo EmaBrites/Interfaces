@@ -58,8 +58,7 @@ section{
     padding-bottom: 20px;
 }
 
-section h2{
-
+section>h2{
     width: 90%;
     max-width: 1200px;
     align-self: center;

@@ -1,0 +1,5 @@
+.breadcrumbs {
+    width: var(--max-width-container);
+    height: 50px;
+    background-color: var(--principal-menos1);
+}

@@ -58,8 +58,11 @@
                     <img class="logo" src="./assets/capa-logo.png" alt="Logo juego">
                     <h1>Proximamente!</h1>
                     <p>Suscribete para más novedades</p>
-                    <input type="text" name="email" id="email" placeholder="email">
-                    <button type="submit"><img src="./assets/enviar.png" alt=""></button>
+                    <div>
+                        <input type="text" name="email" id="email" placeholder="email">
+                        <button type="submit"><img src="./assets/enviar.png" alt=""></button>
+                    </div>
+                    
                 </div>
             </div>
             <h3 class="text">Un cataclismo ha sumido las tierras de Thedas en el caos. Los dragones cubren el cielo y proyectan una
@@ -96,8 +99,30 @@
                     estilo, puedes arrancar a toda velocidad con tu ballesta.</p>
             </div>
         </section>
-        <section>
+        <section class="game-carousel">
             <!-- carrusel de personajes -->
+            <div class="card">
+                <div class="character-card">
+                    <img src="./assets/personajes/dai-grid-tile-character-iron-bull-1x1.jpg.adapt.crop1x1.652w.jpg" alt="">
+                    <h2>The Iron Bull</h2>
+                </div>
+                <div class="info-card">
+                    <p>Los qunari son conocidos por todo Thedas como los brutales gigantes con cuernos que descendieron desde el norte y estuvieron a punto de conquistar el continente. Estos despiadados seguidores de una dura filosofía hacen cumplir sus deseos mediante los Ben-Hassrath: sus espías y policía secreta. Un agente brillante lo hizo todo, cazó espías, rebeldes y desertores hasta el día que, finalmente, se colapsó. Para preservar un valioso activo, sus superiores lo enviaron a Orlais para observar e informar… y así nació el Toro de Hierro. Hoy, los Batalladores de Toro son famosos mercenarios con una lealtad feroz hacia el enorme guerrero qunari, que los dirige con el mismo entusiasmo a las batallas que a las tabernas. Toro de Hierro todavía envía informes a los Ben-Hassrath, pero los años que ha pasado viviendo fuera de las reglas qunari hacen que se pregunte quién es realmente. Sea quien sea, está más que contento de unirse a la Inquisición y matar demonios a cambio de dinero.</p>
+                    <div class="info">
+                        <div class="colum">
+                            <h4>Raza</h4>
+                            <h4>Clase</h4>
+                            <h4>Afiliación</h4>
+                        </div>
+                        <div class="colum">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
         </section>
     </main>
     <footer>
@@ -146,6 +171,7 @@
             </section>
         </div>
     </footer>
+    <script defer src="./javascript/menu.js"></script>
+    <script defer src="./javascript/carousel-effect.js"></script>
 </body>
-<script defer src="./javascript/menu.js"></script>
 </html>

@@ -78,4 +78,5 @@
 
 section .text{
     margin: 5%;
+    width: 80%;
 }
