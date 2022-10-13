@@ -71,13 +71,6 @@ section.highlighted-carousel h2{
     color: var(--acento);
 }
 
-p{
-    font-family: 'Mukta';
-    font-style: normal;
-    font-size: 16px;
-    color: var(--blanco);
-}
-
 @media (min-width:1025px) {
     h1{
         font-size: 40px;
@@ -91,7 +84,7 @@ p{
         font-size: 20px;
     }
     
-    h4{
+    h4,p{
         font-size: 16px;
     }
 }

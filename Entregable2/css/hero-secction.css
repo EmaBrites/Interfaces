@@ -8,7 +8,7 @@
     z-index: -1;
 }
 
-.background {
+.background-layer {
     z-index: -2;
     width: var(--max-width-container);
     height: 600px;
@@ -23,14 +23,14 @@
     background-size: 100% 100%;
 }
 
-.character {
+.character-layer {
     width: 597.87px;
     height: 500px;
     left: 0px;
     top: 250px;
 }
 
-.logo {
+.logo-layer {
     width: 370.39px;
     height: 100px;
 }

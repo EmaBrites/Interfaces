@@ -1,6 +1,3 @@
-
-@import "./general-style.css";
-
 section:first-child:not(footer section){
   position: fixed;
     z-index: 999;

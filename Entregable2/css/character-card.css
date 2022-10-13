@@ -1,41 +1,35 @@
-.card {
-    position: relative;
-    width: 300px;
-    height: 464px;
-}
-
 .character-card {
     width: 300px;
     height: 464px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    background-color: var(--secundario-2);
 }
 
-.character-card img{
+.character{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secundario-2);
+    height: inherit;
+}
+
+.character img{
     height: 400px;
-    width: auto;
     object-fit: cover;
 }
 
-.character-card h2 {
+.character h2 {
     align-self: center;
 }
 
-.info-card {
-    z-index: 1;
+.data {
+    z-index: -1;
     position: relative;
-    top: 0px;
+    top: -464px;
     left: 0px;
-    height: 464px;
-    width: 300px;
     background-color: var(--secundario-2);
-    display: none;
+    height: inherit;
+    width: inherit;
+    word-wrap: break-word;
 }
 
-.info-card p {
-    width: 80%;
+.character:hover{
+    opacity: 0;
 }

@@ -1,6 +1,4 @@
-@import "./general-style.css";
-
-.game-carousel{
+.carousel{
     overflow-x: scroll;
     white-space: nowrap;
     transition: all 0.2s;
@@ -11,22 +9,18 @@
     display: flex;
 }
 
-section .game-carousel{
-    width: 90%;
-}
-
-.game-carousel .game-card{
+.carousel .card{
     margin-left: 7px;
     margin-right: 7px;
 }
 
-.game-carousel.active {
+.carousel.active {
     cursor: grabbing;
     cursor: -webkit-grabbing;
 }
 
 @media (min-width:1024px) {
-    .game-carousel{
+    .carousel{
         overflow-x: hidden;
     }
 }
