@@ -10,6 +10,10 @@
     height: inherit;
 }
 
+.character:hover{
+    opacity: 0;
+}
+
 .character img{
     height: 400px;
     object-fit: cover;
@@ -27,9 +31,25 @@
     background-color: var(--secundario-2);
     height: inherit;
     width: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.character:hover{
-    opacity: 0;
+.row{
+    display: flex;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 5px;
+}
+
+.align-right{
+    align-items:flex-end;
 }
