@@ -29,17 +29,11 @@
     --display-text: none;
     width: var(--card-width);
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--acento-2);
 }
 
 .play-buy-button:hover{
     --display-img: none;
     --display-text: block;
-    background-color: var(--acento-1);
-    cursor: pointer;
 }
 
 .play-buy-button img{

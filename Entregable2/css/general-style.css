@@ -71,6 +71,18 @@ section.highlighted-carousel h2{
     color: var(--acento);
 }
 
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--acento-2)
+}
+
+button:hover{
+    background-color: var(--acento-1);
+    cursor: pointer;
+}
+
 @media (min-width:1025px) {
     h1{
         font-size: 40px;
