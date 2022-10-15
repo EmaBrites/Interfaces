@@ -2,7 +2,7 @@ let isDown = false;
 let startX;
 let scrollLeft;
 
-addCarouselEffect('game-carousel');
+addCarouselEffect('carousel');
 
 function addCarouselEffect(className){
     const sliders = document.getElementsByClassName(className);
