@@ -1,0 +1,26 @@
+.description-section{
+    height: 820px;
+}
+
+.description-section .row{
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.description-section .row .column{
+    width: 40%;
+    height: 400px;
+    background-color: var(--principal1);
+    padding: 10px;
+    align-items: center;
+}
+
+.description-section .row .column img{
+    height: 380px;
+    position:absolute;
+
+}
+
+.description-section * img{
+    margin: 10px;
+}

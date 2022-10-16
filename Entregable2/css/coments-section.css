@@ -1,0 +1,33 @@
+.new-comment{
+    width: 80%;
+    height: 80px;
+    background-color: var(--principal);
+    margin: 10px;
+}
+
+.new-comment .row{
+    width: 100%;
+}
+
+.new-comment input{
+    height: 30px;
+    width: 100%;
+    background-color: var(--secundario-2);
+}
+
+.comment{
+    width: 80%;
+    height: 80px;
+    background-color: var(--secundario-2);
+    margin: 10px;
+}
+
+.submit-button{
+    width: 30px;
+    height: 30px;
+    background-color: var(--principal1);
+}
+
+.submit-button img{
+    width: 20px;
+}

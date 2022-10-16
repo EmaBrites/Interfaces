@@ -37,6 +37,7 @@
 }
 
 .play-buy-button img{
+    width: 40px;
     display: var(--display-img);
 }
 
