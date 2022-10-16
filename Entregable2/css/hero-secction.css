@@ -76,6 +76,10 @@
     position: static;
 }
 
+.action div{
+    display: flex;
+}
+
 section .text{
     margin: 5%;
     width: 80%;
