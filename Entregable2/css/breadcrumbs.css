@@ -25,6 +25,10 @@
     z-index: 1;
 }
 
+.breadcrum a{
+    text-decoration: none;
+}
+
 .breadcrum .drawing div:nth-child(1){
     width: 115px;
     font-weight: bold;
