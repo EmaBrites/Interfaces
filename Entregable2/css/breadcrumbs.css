@@ -4,7 +4,7 @@
     background-color: var(--principal2);
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .breadcrum{
@@ -36,6 +36,11 @@
     border-top: 15px solid var(--principal-menos1);
     border-bottom: 15px solid var(--principal-menos1); 
 }
+
+.breadcrum:first-child .drawing div:nth-child(1){
+    border-left: unset;
+}
+
 
 .breadcrum .drawing div:nth-child(2){
     background-color: var(--principal-menos1);
