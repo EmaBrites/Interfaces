@@ -1,5 +1,42 @@
-.breadcrumbs {
+.breadcrumbs{
+    display: flex;
     width: var(--max-width-container);
-    height: 50px;
+    background-color: var(--principal2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.breadcrum{
+    position: relative;
+    height: 30px;
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breadcrum .drawing{
+    display: flex;
+    position: absolute;
+}
+
+.breadcrum p{
+    z-index: 1;
+}
+
+.breadcrum .drawing div:nth-child(1){
+    width: 115px;
+    font-weight: bold;
+    border-left: 30px solid var(--principal2);
+    border-top: 15px solid var(--principal-menos1);
+    border-bottom: 15px solid var(--principal-menos1); 
+}
+
+.breadcrum .drawing div:nth-child(2){
     background-color: var(--principal-menos1);
+    font-weight: bold;
+    border-left: 30px solid var(--principal-menos1);
+    border-top: 15px solid var(--principal2);
+    border-bottom: 15px solid var(--principal2); 
 }
