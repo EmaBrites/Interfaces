@@ -32,7 +32,7 @@
 .breadcrum .drawing div:nth-child(1){
     width: 115px;
     font-weight: bold;
-    border-left: 30px solid var(--principal2);
+    border-left: 15px solid var(--principal2);
     border-top: 15px solid var(--principal-menos1);
     border-bottom: 15px solid var(--principal-menos1); 
 }
@@ -45,7 +45,7 @@
 .breadcrum .drawing div:nth-child(2){
     background-color: var(--principal-menos1);
     font-weight: bold;
-    border-left: 30px solid var(--principal-menos1);
+    border-left: 15px solid var(--principal-menos1);
     border-top: 15px solid var(--principal2);
     border-bottom: 15px solid var(--principal2); 
 }

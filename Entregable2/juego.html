@@ -63,7 +63,22 @@
     </nav>
 
     <main>
-        <div class="breadcrumbs"></div>
+        <div class="breadcrumbs">
+            <div class="breadcrum">
+                <div class="drawing">
+                    <div></div>
+                    <div></div>
+                </div>
+                <p><a href="./index.html">Inicio</a></p>
+            </div>
+            <div class="breadcrum">
+                <div class="drawing">
+                    <div></div>
+                    <div></div>
+                </div>
+                <p>Juego</p>
+            </div>
+        </div>
         <section class="game-secttion">
             <div class="game-container">
                 <!-- Juego -->
@@ -73,12 +88,25 @@
             </div>
 
         </section>
-        <div>
-            <button class="alter-button"><img src="./assets/share.png" alt=""></button>
-            <button class="alter-button">
-                <h1>?</h1>
-            </button>
-        </div>
+        <section class="game-actions">
+            <div class="row">
+                <button class="alter-button">
+                    <h1>?</h1>
+                </button>
+                <button class="alter-button share">
+                    <img src="./assets/share.png" alt="">
+                </button>
+                <button class="alter-button social">
+                    <img src="./assets/Redes/facebook.png" alt="">
+                </button>
+                <button class="alter-button social">
+                    <img src="./assets/Redes/instagram.png" alt="">
+                </button>
+                <button class="alter-button social">
+                    <img src="./assets/Redes/twitter.png" alt="">
+                </button>    
+            </div>
+        </section>
         <section class="description-section">
             <div class="row">
                 <div class="column">
@@ -95,45 +123,47 @@
                         <li>jugando con los ojos vendados</li>
                     </ul>
                 </div>
-                <div class="column display">
-                    <!-- Imagen galeria -->
-                    <img src="./assets/galeria/unnamed.webp" alt="">
-                    <img src="./assets/galeria/unnamed (1).webp" alt="">
-                    <img src="./assets/galeria/unnamed (2).webp" alt="">
-                    <img src="./assets/galeria/unnamed (3).webp" alt="">
-                    <img src="./assets/galeria/unnamed (4).webp" alt="">
-                    <img src="./assets/galeria/unnamed (5).webp" alt="">
-                    <img src="./assets/galeria/unnamed (6).webp" alt="">
-                    <img src="./assets/galeria/unnamed (7).webp" alt="">
+                <div class="column gallery">
+                    <img id="img1" src="./assets/galeria/unnamed.webp" alt="">
+                    <img id="img2" src="./assets/galeria/unnamed (1).webp" alt="">
+                    <img id="img3" src="./assets/galeria/unnamed (2).webp" alt="">
+                    <img id="img4" src="./assets/galeria/unnamed (3).webp" alt="">
+                    <img id="img5" src="./assets/galeria/unnamed (4).webp" alt="">
+                    <img id="img6" src="./assets/galeria/unnamed (5).webp" alt="">
+                    <img id="img7" src="./assets/galeria/unnamed (6).webp" alt="">
+                    <img id="img8" src="./assets/galeria/unnamed (7).webp" alt="">
                 </div>
             </div>
             <div class="carousel">
-                <img src="./assets/galeria/unnamed.webp" alt="">
-                <img src="./assets/galeria/unnamed (1).webp" alt="">
-                <img src="./assets/galeria/unnamed (2).webp" alt="">
-                <img src="./assets/galeria/unnamed (3).webp" alt="">
-                <img src="./assets/galeria/unnamed (4).webp" alt="">
-                <img src="./assets/galeria/unnamed (5).webp" alt="">
-                <img src="./assets/galeria/unnamed (6).webp" alt="">
-                <img src="./assets/galeria/unnamed (7).webp" alt="">
+                <a href="./juego.html#img1"><img src="./assets/galeria/unnamed.webp" alt=""></a>
+                <a href="./juego.html#img2"><img src="./assets/galeria/unnamed (1).webp" alt=""></a>
+                <a href="./juego.html#img3"><img src="./assets/galeria/unnamed (2).webp" alt=""></a>
+                <a href="./juego.html#img4"><img src="./assets/galeria/unnamed (3).webp" alt=""></a>
+                <a href="./juego.html#img5"><img src="./assets/galeria/unnamed (4).webp" alt=""></a>
+                <a href="./juego.html#img6"><img src="./assets/galeria/unnamed (5).webp" alt=""></a>
+                <a href="./juego.html#img7"><img src="./assets/galeria/unnamed (6).webp" alt=""></a>
+                <a href="./juego.html#img8"><img src="./assets/galeria/unnamed (7).webp" alt=""></a>
             </div>
         </section>
         <section class="column">
             <h1>Comentarios</h1>
-            <div class="new-comment row">
+            <div class="new comment row">
                 <img src="./assets/usuario.png" alt="Avatar">
                 <div class="column">
                     <div class="row">
                         <h3>Nombre</h3>
-                        <!-- 7 img de estrellas? -->
-                        <div class="row">
-                            <img src="./assets/game-card/star.png" alt="">
-                            <img src="./assets/game-card/star.png" alt="">
-                            <img src="./assets/game-card/star.png" alt="">
-                            <img src="./assets/game-card/star.png" alt="">
-                            <img src="./assets/game-card/star.png" alt="">
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text"></label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text"></label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text"></label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text"></label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text"></label>
                         </div>
-                        
                     </div>
                     <div class="row">
                         <input type="text" name="" id="" placeholder="Deja tu comentario...">
@@ -147,48 +177,67 @@
                     <h3>Daniel Martinez</h3>
                     <p>Safa para pasar el rato</p>
                 </div>
-                <div class="column">
+                <div class="column right">
                     <div class="row">
-                        <!-- 7 img de estrellas? -->
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
                     </div>
                     <div class="row">
                         <p>Hace 2 días</p>
-                        <img src="./assets/Rating/heart (1) 1.png" alt="like">
-                    </div>    
+                        <div class="like">
+                            <input type="checkbox" name="like" id="like1">
+                            <label for="like1"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="comment row">
                 <img src="./assets/usuario.png" alt="Avatar">
                 <div class="column">
                     <h3>Ayelen Baron</h3>
-                    <!-- 7 img de estrellas? -->
                     <p>Está bueno, pero después de un ratito te aburre</p>
                 </div>
-                <div class="column">
+                <div class="column right">
                     <div class="row">
-                        <!-- 7 img de estrellas? -->
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
                     </div>
                     <div class="row">
                         <p>Hace 2 días</p>
-                        <img src="./assets/Rating/heart (1) 1.png" alt="like">
-                    </div>    
+                        <div class="like">
+                            <input type="checkbox" name="like" id="like2" checked="true">
+                            <label for="like2"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="comment row">
                 <img src="./assets/usuario.png" alt="Avatar">
                 <div class="column">
                     <h3>Natanael Gonzales</h3>
-                    <!-- 7 img de estrellas? -->
                     <p>Me gusta más que el tateti</p>
                 </div>
-                <div class="column">
+                <div class="column right">
                     <div class="row">
-                        <!-- 7 img de estrellas? -->
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
                     </div>
                     <div class="row">
                         <p>Hace 2 días</p>
-                        <img src="./assets/Rating/heart (1) 1.png" alt="like">
-                    </div>    
+                        <div class="like">
+                            <input type="checkbox" name="like" id="like3">
+                            <label for="like3"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="comment row">
@@ -197,30 +246,45 @@
                     <h3>Lionel Messi</h3>
                     <p>Prefiero jugar a alguno de fútbol</p>
                 </div>
-                <div class="column">
+                <div class="column right">
                     <div class="row">
-                        <!-- 7 img de estrellas? -->
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
+                        <img src="./assets/game-card/star.png" alt="">
                     </div>
                     <div class="row">
                         <p>Hace 2 días</p>
-                        <img src="./assets/Rating/heart (1) 1.png" alt="like">
-                    </div>    
+                        <div class="like">
+                            <input type="checkbox" name="like" id="like4">
+                            <label for="like4"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="comment row">
                 <img src="./assets/usuario.png" alt="Avatar">
                 <div class="column">
                     <h3>Santa Claus</h3>
-                    <p>faltan como dos meses para navidad, pero bueno, no importa, solo quiero hacer un comentario más largoa ver que onda</p>
+                    <p>faltan como dos meses para navidad, pero bueno, no importa, solo quiero hacer un comentario más
+                        largoa ver que onda</p>
                 </div>
-                <div class="column">
+                <div class="column right">
                     <div class="row">
-                        <!-- 7 img de estrellas? -->
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
+                        <img src="./assets/game-card/star-checked.png" alt="">
                     </div>
                     <div class="row">
                         <p>Hace 2 días</p>
-                        <img src="./assets/Rating/heart (1) 1.png" alt="like">
-                    </div>    
+                        <div class="like">
+                            <input type="checkbox" name="like" id="like5" checked="true">
+                            <label for="like5"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <h3><a href="">Cargar mas</a></h3>

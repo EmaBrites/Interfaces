@@ -31,9 +31,6 @@ ul {
 
 body{
     background-color: var(--secundario);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 p, li{
@@ -83,6 +80,13 @@ button{
 button:hover{
     background-color: var(--acento-1);
     cursor: pointer;
+}
+
+input::placeholder{
+    font-family: 'Ek Mukta';
+    font-size: 16px;
+    color: var(--blanco);
+    padding-left: 5px;
 }
 
 @media (min-width:1025px) {

@@ -3,8 +3,8 @@
     white-space: nowrap;
     transition: all 0.2s;
     will-change: transform;
-    cursor: pointer;
-    width: 90%;
+    cursor:grab;
+    width: 80%;
     max-width: 1200px;
     display: flex;
 }

@@ -60,12 +60,12 @@
     margin: 5px;
 }
 
-.column p{
+.character-card .column p{
     margin-top: 8px;
     margin-bottom: 8px;
 }
 
-.column p:last-child{
+.character-card .column p:last-child{
     margin-bottom: 20px;
 }
 
