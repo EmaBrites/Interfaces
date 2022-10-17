@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../assets/554272-dragon-age-inquisition-1920x1080.jpg);
+    background: url(../assets/fondo-juego.jpeg);
     backdrop-filter: blur(5px);
 }
 
@@ -23,9 +23,16 @@
     border-radius: 50%;
 }
 
-.game-secttion+div{
+.game-actions{
     display: flex;
-    justify-content: flex-end;
+    
+}
+
+.game-actions .row{
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
 }
 
 .alter-button{
@@ -34,4 +41,12 @@
     border-radius: 50%;
     margin: 5px;
     background-color: var(--secundario-2);
+}
+
+.social{
+    display: none;
+}
+
+.share:focus~button{
+    display: flex;
 }
