@@ -1,0 +1,57 @@
+.game-card{
+    --card-width:100px;
+    --margin-top: 13px;
+    width: var(--card-width);
+}
+
+.game-card h3{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+
+.game-card div, .game-card h3:not(.play-buy-button h3){
+    margin-top: var(--margin-top);
+}
+
+.price-rating{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.price-rating img{
+    margin-left: 2px;
+    width: 15px;
+}
+
+
+.play-buy-button{
+    --display-img: block;
+    --display-text: none;
+    width: var(--card-width);
+    height: 50px;
+}
+
+.play-buy-button:hover{
+    --display-img: none;
+    --display-text: block;
+}
+
+.play-buy-button img{
+    width: 40px;
+    display: var(--display-img);
+}
+
+.play-buy-button h3{
+    display: var(--display-text);
+}
+
+.game-card > img{
+    width: var(--card-width);
+}
+
+@media (min-width:1440px) {
+    .game-card{
+        --card-width: 200px;
+    }
+}

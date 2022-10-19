@@ -1,0 +1,108 @@
+.comment {
+    width: 60%;
+    min-height: 80px;
+    background-color: var(--secundario-2);
+    margin: 10px;
+}
+
+.comment>img {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+}
+
+.comment.new {
+    background-color: var(--principal);
+    margin: 10px;
+}
+
+.comment .row {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.comment .column {
+    width: 100%;
+}
+
+.comment .column.right {
+    width: fit-content;
+    justify-content: flex-end;
+}
+
+.comment .column.right .row {
+    margin: 5px 0px 5px 0px;
+}
+
+.comment .column.right .row * {
+    margin: 2px;
+}
+
+.comment.new input {
+    height: 30px;
+    width: 100%;
+    background-color: var(--secundario-2);
+}
+
+.submit-button {
+    width: 30px;
+    height: 30px;
+    background-color: var(--principal1);
+}
+
+.submit-button img {
+    width: 20px;
+}
+
+.like{
+    display: flex;
+}
+
+.like>input{
+    display: none;
+}
+
+.like label{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-image: url("../assets/Rating/heart.png");
+}
+
+.like>input:checked~label{
+    background-image: url("../assets/Rating/heart-checked.png");
+}
+
+.rate {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rate:not(:checked)>input {
+    display: none;
+}
+
+.rate:not(:checked)>label {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    cursor: pointer;
+    background-image: url("../assets/game-card/star.png");
+}
+
+.rate>input:checked~label {
+    background-image: url("../assets/game-card/star-checked.png");
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    background-image: url("../assets/game-card/star-checked.png");
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    background-image: url("../assets/game-card/star-checked.png");
+}

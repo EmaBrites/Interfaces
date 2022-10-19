@@ -1,0 +1,26 @@
+.carousel{
+    overflow-x: scroll;
+    white-space: nowrap;
+    transition: all 0.2s;
+    will-change: transform;
+    cursor:grab;
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+}
+
+.carousel .card{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.carousel.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+@media (min-width:1024px) {
+    .carousel{
+        overflow-x: hidden;
+    }
+}
