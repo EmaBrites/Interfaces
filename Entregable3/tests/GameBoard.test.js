@@ -43,11 +43,17 @@ describe('test board construction', ()=>{
 describe('test token-droping', ()=>{
     gameBoard = new GameBoard(4)
 
-    test('if board has a token in a first column after droping a token', () => {
+    test('if the board has a token in the first column after droping a token', () => {
         gameBoard = new GameBoard(4)
         gameBoard.dropToken(1)
         expect(gameBoard.board[0][6]).toBe(gameBoard.getLastPlayer())
     });
-    
+
+    test('if the board has a token of the second player after two token-droping',()=>{
+        gameBoard = new GameBoard(4)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(2)
+        expect(gameBoard.board[1][6]).toBe(2)
+    })
 
 })
