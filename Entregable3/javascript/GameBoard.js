@@ -36,7 +36,7 @@ class GameBoard{
         const rowsAmount = 6 + extraRowsAndColumns
         const columnsAmount = 7 + extraRowsAndColumns
 
-        this.board = Array(columnsAmount).fill(Array(rowsAmount))
+        this.board = Array(rowsAmount).fill(Array(columnsAmount))
         this.spacesLeft = rowsAmount * columnsAmount
     }
 
@@ -120,3 +120,5 @@ class GameBoard{
         return this.nextPlayer % 2 + 1
     }
 }
+
+module.exports = { GameBoard }
