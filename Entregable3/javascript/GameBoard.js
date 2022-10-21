@@ -5,6 +5,8 @@ class GameBoard{
     nextPlayer = 1
     spacesLeft
     lastChosenColumn
+    rowsAmount
+    columnsAmount
 
     //los puntos cardinales representan una dirección y los valores de X e Y se utilizan para mover los indices en la dirección indicada
     // movimientos en x: -1 arriba, 1 abajo, y 0 fijo
@@ -33,11 +35,11 @@ class GameBoard{
 
         //se agrega una fila y una columna por cada extra ficha que se quiera agregar después del 4 en linea para hacer el 5, 6 o 7 en linea
         const extraRowsAndColumns = this.tokensPerLine % 4
-        const rowsAmount = 6 + extraRowsAndColumns
-        const columnsAmount = 7 + extraRowsAndColumns
+        this.rowsAmount = 6 + extraRowsAndColumns
+        this.columnsAmount = 7 + extraRowsAndColumns
 
-        this.board = Array(rowsAmount).fill(Array(columnsAmount))
-        this.spacesLeft = rowsAmount * columnsAmount
+        this.board = Array(this.rowsAmount).fill().map(()=>Array(this.columnsAmount).fill())
+        this.spacesLeft = this.rowsAmount * this.columnsAmount
     }
 
     //#######################################
@@ -46,12 +48,14 @@ class GameBoard{
         if(this.isGameOver()) return
 
         chosenColumn-- //le resto 1 xq los arreglo empiezan en cero xD
+        this.lastChosenColumn = chosenColumn
 
-        this.board[chosenColumn].shift()
-        this.board[chosenColumn].push(this.nextPlayer)
+        //se le resta 1 xq la nueva ficha se debe poner en la fila de arriba
+        const row = this.findRowOfLastToken() - 1
+
+        this.board[row][chosenColumn] = this.nextPlayer
         this.nextPlayer = this.nextPlayer % 2 + 1
         this.spacesLeft--
-        this.lastChosenColumn = chosenColumn
     }
 
     isGameOver(){
@@ -108,9 +112,10 @@ class GameBoard{
     }
 
     findRowOfLastToken(){
-        for(let r = 0; r < this.rowsAmount; r++){
+        for(let r = this.rowsAmount -1; r > 0; r--){
             if(this.board[r][this.lastChosenColumn] === this.getLastPlayer()) return r
         }
+        return this.rowsAmount
     }
 
     getNextPlayer(){
@@ -126,5 +131,3 @@ module.exports = { GameBoard }
 
 
 const gameBoard = new GameBoard(4)
-gameBoard.dropToken(1)
-console.log(gameBoard.board[0])

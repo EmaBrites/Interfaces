@@ -57,3 +57,30 @@ describe('test token-droping', ()=>{
     })
 
 })
+
+describe('test winning condition', ()=>{
+    it('should return false when no one has played', ()=>{
+        gameBoard = new GameBoard(4)
+        expect(gameBoard.haslastPlayerWon()).toBe(false)
+    })
+
+    it('should return true when a player has won', ()=>{
+        gameBoard = new GameBoard(4)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(2)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(2)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(2)
+        gameBoard.dropToken(1)
+        expect(gameBoard.haslastPlayerWon()).toBe(true)
+    })
+})
+
+describe('test row search of a token dropped', ()=>{
+    test('if the row of the first token dropped is the first one ',()=>{
+        gameBoard = new GameBoard(4)
+        gameBoard.dropToken(6)
+        expect(gameBoard.findRowOfLastToken()).toBe(5)
+    })
+})
