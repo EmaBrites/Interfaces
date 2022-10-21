@@ -47,6 +47,7 @@ class GameBoard{
 
         chosenColumn-- //le resto 1 xq los arreglo empiezan en cero xD
 
+        this.board[chosenColumn].shift()
         this.board[chosenColumn].push(this.nextPlayer)
         this.nextPlayer = this.nextPlayer % 2 + 1
         this.spacesLeft--
@@ -54,7 +55,7 @@ class GameBoard{
     }
 
     isGameOver(){
-        return this.spacesLeft === 0 || this.lastPlayerHasWon()
+        return this.spacesLeft === 0 || this.haslastPlayerWon()
     }
 
     getNextPlayer(){
@@ -66,7 +67,7 @@ class GameBoard{
     }
 
     haslastPlayerWon(){
-        for (const line of Object.entries(this.lines)) {
+        for (const line of Object.keys(this.lines)) {
             if(this.getAmoutOfEqualTokensInLine(line) >= this.tokensPerLine)
                 return true
         }
@@ -78,7 +79,7 @@ class GameBoard{
 
     getAmoutOfEqualTokensInLine(lineFunction){
         //retorno la suma de los dos segmentos que forman la linea más la ficha que se jugó
-        const line = lines[lineFunction]
+        const line = this.lines[lineFunction]
         return (  
             1   + this.getAmountOfEqualTokensOfDirection(line.s1) 
                 + this.getAmountOfEqualTokensOfDirection(line.s2)
@@ -122,3 +123,8 @@ class GameBoard{
 }
 
 module.exports = { GameBoard }
+
+
+const gameBoard = new GameBoard(4)
+gameBoard.dropToken(1)
+console.log(gameBoard.board[0])

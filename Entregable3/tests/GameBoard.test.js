@@ -1,7 +1,7 @@
 const { GameBoard } = require('./../javascript/GameBoard');
 
-describe('board construction test', ()=>{
-    let gameBoard
+let gameBoard
+describe('test board construction', ()=>{
     
     it('should be a 6 rows board', () => {
         gameBoard = new GameBoard(4)
@@ -38,4 +38,16 @@ describe('board construction test', ()=>{
         const columns = gameBoard.board[0].length
         expect(columns).toBe(9)
     });
+})
+
+describe('test token-droping', ()=>{
+    gameBoard = new GameBoard(4)
+
+    test('if board has a token in a first column after droping a token', () => {
+        gameBoard = new GameBoard(4)
+        gameBoard.dropToken(1)
+        expect(gameBoard.board[0][6]).toBe(gameBoard.getLastPlayer())
+    });
+    
+
 })
