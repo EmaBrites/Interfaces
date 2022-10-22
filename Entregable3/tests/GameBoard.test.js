@@ -95,6 +95,20 @@ describe("test winning condition", () => {
     expect(gameBoard.haslastPlayerWon()).toBe(true)
   })
 
+  it("should return true when a player has won (vertical) in a board of 5 tokens per line condition", () => {
+    gameBoard = new GameBoard(5)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    expect(gameBoard.haslastPlayerWon()).toBe(true)
+  })
+
   it("should return true when a player has won (horizontal)", () => {
     gameBoard = new GameBoard(4)
     gameBoard.dropToken(1)
@@ -104,6 +118,22 @@ describe("test winning condition", () => {
     gameBoard.dropToken(3)
     gameBoard.dropToken(3)
     gameBoard.dropToken(4)
+    expect(gameBoard.haslastPlayerWon()).toBe(true)
+  })
+
+  it("should return true when a player has won (vertical) in a board of 6 tokens per line condition", () => {
+    gameBoard = new GameBoard(6)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(4)
+    gameBoard.dropToken(4)
+    gameBoard.dropToken(5)
+    gameBoard.dropToken(5)
+    gameBoard.dropToken(6)
     expect(gameBoard.haslastPlayerWon()).toBe(true)
   })
 
