@@ -83,4 +83,15 @@ describe('test row search of a token dropped', ()=>{
         gameBoard.dropToken(6)
         expect(gameBoard.findRowForNewToken() + 1).toBe(5)
     })
+
+    test('if the row of the sixth token dropped in a column is the last one in a 6x7 board',()=>{
+        gameBoard = new GameBoard(4)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(1)
+        gameBoard.dropToken(1)
+        expect(gameBoard.findRowForNewToken() + 1).toBe(0)
+    })
 })

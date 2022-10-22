@@ -48,7 +48,6 @@ class GameBoard{
         chosenColumn-- //le resto 1 xq los arreglo empiezan en cero xD
         this.lastChosenColumn = chosenColumn
 
-        //se le resta 1 xq la nueva ficha se debe poner en la fila de arriba
         const row = this.findRowForNewToken()
 
         console.log(`token dropped in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`)
@@ -116,11 +115,11 @@ class GameBoard{
     }
 
     findRowForNewToken(){
-        for(let r = this.rowsAmount -1; r > 0; r--){
+        for(let r = this.rowsAmount -1; r >= 0; r--){
             if(this.board[r][this.lastChosenColumn] == undefined ) return r
         }
-        //si la columna elegida está llena devolvemos un valor más alto
-        return this.rowsAmount
+        //si la columna elegida está llena devolvemos un valor discernible
+        return -1
     }
 
     getNextPlayer(){
@@ -137,10 +136,8 @@ module.exports = { GameBoard }
 
 const gameBoard = new GameBoard(4)
 gameBoard.dropToken(1)
-gameBoard.dropToken(2)
 gameBoard.dropToken(1)
-gameBoard.dropToken(2)
 gameBoard.dropToken(1)
-gameBoard.dropToken(2)
 gameBoard.dropToken(1)
-console.log(gameBoard.haslastPlayerWon())
+gameBoard.dropToken(1)
+gameBoard.dropToken(1)
