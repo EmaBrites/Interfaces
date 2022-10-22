@@ -147,12 +147,3 @@ class GameBoard {
 }
 
 module.exports = { GameBoard }
-
-
-const gameBoard = new GameBoard(4)
-gameBoard.dropToken(1)
-gameBoard.dropToken(1)
-gameBoard.dropToken(1)
-gameBoard.dropToken(1)
-gameBoard.dropToken(1)
-gameBoard.dropToken(1)

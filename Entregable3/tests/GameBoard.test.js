@@ -166,3 +166,42 @@ describe("test row search of a token dropped", () => {
     expect(gameBoard.board[0][0]).toBe(gameBoard.getLastPlayer())
   })
 })
+
+
+describe("test game over method", () => {
+  it("should return false when a player hasn't won and there's space left in the board", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.dropToken(1)
+    expect(gameBoard.isGameOver()).toBe(false)
+  })
+
+  it("should return true when a player has won", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    expect(gameBoard.isGameOver()).toBe(true)
+  })
+
+  it("should return true when a player has won", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(1)
+    expect(gameBoard.isGameOver()).toBe(true)
+  })
+
+  it("should return true when a player hasn't won but the board is full", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.spacesLeft = 0
+    expect(gameBoard.isGameOver()).toBe(true)
+  })
+})
