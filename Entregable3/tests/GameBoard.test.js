@@ -73,7 +73,7 @@ describe("test winning condition", () => {
     expect(gameBoard.haslastPlayerWon()).toBe(false)
   })
 
-  it("should return true when a player has won", () => {
+  it("should return true when a player has won (vertical)", () => {
     gameBoard = new GameBoard(4)
     gameBoard.dropToken(1)
     gameBoard.dropToken(2)
@@ -84,6 +84,54 @@ describe("test winning condition", () => {
     gameBoard.dropToken(1)
     expect(gameBoard.haslastPlayerWon()).toBe(true)
   })
+
+  it("should return true when a player has won (horizontal)", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(4)
+    expect(gameBoard.haslastPlayerWon()).toBe(true)
+  })
+
+  it("should return true when a player has won (y = x)", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(4)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(4)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(4)
+    gameBoard.dropToken(4)
+    expect(gameBoard.haslastPlayerWon()).toBe(true)
+  })
+
+  it("should return true when a player has won (y = -x)", () => {
+    gameBoard = new GameBoard(4)
+
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(2)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(3)
+    gameBoard.dropToken(4)
+
+    expect(gameBoard.haslastPlayerWon()).toBe(true)
+  })
+
 })
 
 describe("test row search of a token dropped", () => {
