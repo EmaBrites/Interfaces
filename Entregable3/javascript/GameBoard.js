@@ -24,8 +24,8 @@ class GameBoard{
 
     //lineas creadas por dos segmentes según las direcciones dadas, las lineas se representan como funciones matemáticas
     lines = {
-        "y = 0": {s1: "N",s2: "S"},
-        "x = 0": {s1: "E", s2: "W"},
+        "x = 0": {s1: "N",s2: "S"},
+        "y = 0": {s1: "E", s2: "W"},
         "y = x": {s1: "NE", s2: "SW"},
         "y = -1": {s1: "NW", s2: "SE"}
     }
@@ -45,14 +45,13 @@ class GameBoard{
     //#######################################
     //########## PUBLIC METHODS!!! ##########
     dropToken(chosenColumn){
-        if(this.isGameOver()) return
-
         chosenColumn-- //le resto 1 xq los arreglo empiezan en cero xD
         this.lastChosenColumn = chosenColumn
 
         //se le resta 1 xq la nueva ficha se debe poner en la fila de arriba
-        const row = this.findRowOfLastToken() - 1
+        const row = this.findRowForNewToken()
 
+        console.log(`token dropped in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`)
         this.board[row][chosenColumn] = this.nextPlayer
         this.nextPlayer = this.nextPlayer % 2 + 1
         this.spacesLeft--
@@ -71,6 +70,9 @@ class GameBoard{
     }
 
     haslastPlayerWon(){
+        console.log("checking if last player has won...")
+        console.log(`last token played column:${this.lastChosenColumn} row:${this.findRowForNewToken() + 1}`)
+
         for (const line of Object.keys(this.lines)) {
             if(this.getAmoutOfEqualTokensInLine(line) >= this.tokensPerLine)
                 return true
@@ -84,37 +86,40 @@ class GameBoard{
     getAmoutOfEqualTokensInLine(lineFunction){
         //retorno la suma de los dos segmentos que forman la linea más la ficha que se jugó
         const line = this.lines[lineFunction]
-        return (  
-            1   + this.getAmountOfEqualTokensOfDirection(line.s1) 
-                + this.getAmountOfEqualTokensOfDirection(line.s2)
-        )
+        const amount = 1   
+        + this.getAmountOfEqualTokensOfDirection(line.s1) 
+        + this.getAmountOfEqualTokensOfDirection(line.s2)
+        
+        console.log(`line ${lineFunction} has an amount of ${amount} equal tokens`)
+        return amount
     }
 
     getAmountOfEqualTokensOfDirection(cardinalPoint){
-        let {xMovement, yMovement} = this.directionsMovements[cardinalPoint]
+        let {x, y} = this.directionsMovements[cardinalPoint]
 
-        //según la dirección que se indice, muevo los indices para posicionarme en la siguiente ficha
-        let r = this.findRowOfLastToken() + xMovement
-        let c = this.lastChosenColumn + yMovement
+        //según la dirección que se indique, muevo los indices para posicionarme en la siguiente ficha
+        let c = this.lastChosenColumn + y
+        let r = this.findRowForNewToken() + 1 + x
 
         let count = 0;
 
         //mientras ningún indice se vaya de rango cuento las fichas iguales a la del jugador
-        while(r <= this.rowsAmount && r >= 0 && c <= this.columnsAmount && c >= 0){
+        while(r < this.rowsAmount && r >= 0 && c <=this.columnsAmount && c >= 0){
             if(this.board[r][c] === this.getLastPlayer()){
                 count++
-                r += xMovement
-                c += yMovement
+                r += x
+                c += y
             }
             else break //si encuentro una ficha distinta a la del jugador, no tiene sentido seguir contando
         }
         return count
     }
 
-    findRowOfLastToken(){
+    findRowForNewToken(){
         for(let r = this.rowsAmount -1; r > 0; r--){
-            if(this.board[r][this.lastChosenColumn] === this.getLastPlayer()) return r
+            if(this.board[r][this.lastChosenColumn] == undefined ) return r
         }
+        //si la columna elegida está llena devolvemos un valor más alto
         return this.rowsAmount
     }
 
@@ -131,3 +136,11 @@ module.exports = { GameBoard }
 
 
 const gameBoard = new GameBoard(4)
+gameBoard.dropToken(1)
+gameBoard.dropToken(2)
+gameBoard.dropToken(1)
+gameBoard.dropToken(2)
+gameBoard.dropToken(1)
+gameBoard.dropToken(2)
+gameBoard.dropToken(1)
+console.log(gameBoard.haslastPlayerWon())

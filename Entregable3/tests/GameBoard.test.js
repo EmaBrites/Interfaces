@@ -40,20 +40,20 @@ describe('test board construction', ()=>{
     });
 })
 
-describe('test token-droping', ()=>{
+describe('test token-dropping', ()=>{
     gameBoard = new GameBoard(4)
 
-    test('if the board has a token in the first column after droping a token', () => {
+    test('if the board has a token in the first column after dropping a token', () => {
         gameBoard = new GameBoard(4)
         gameBoard.dropToken(1)
-        expect(gameBoard.board[0][6]).toBe(gameBoard.getLastPlayer())
+        expect(gameBoard.board[5][0]).toBe(gameBoard.getLastPlayer())
     });
 
-    test('if the board has a token of the second player after two token-droping',()=>{
+    test('if the board has a token of the second player after two token-dropping',()=>{
         gameBoard = new GameBoard(4)
         gameBoard.dropToken(1)
         gameBoard.dropToken(2)
-        expect(gameBoard.board[1][6]).toBe(2)
+        expect(gameBoard.board[5][1]).toBe(2)
     })
 
 })
@@ -81,6 +81,6 @@ describe('test row search of a token dropped', ()=>{
     test('if the row of the first token dropped is the first one ',()=>{
         gameBoard = new GameBoard(4)
         gameBoard.dropToken(6)
-        expect(gameBoard.findRowOfLastToken()).toBe(5)
+        expect(gameBoard.findRowForNewToken() + 1).toBe(5)
     })
 })
