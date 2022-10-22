@@ -55,6 +55,16 @@ describe("test token-dropping", () => {
     expect(gameBoard.board[5][1]).toBe(2)
   })
 
+  it("should return true when chosen column is not full", () => {
+    gameBoard = new GameBoard(4)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    gameBoard.dropToken(1)
+    expect(gameBoard.dropToken(1)).toBe(true)
+  })
+
   it("should return false when chosen column is full", () => {
     gameBoard = new GameBoard(4)
     gameBoard.dropToken(1)
@@ -63,7 +73,7 @@ describe("test token-dropping", () => {
     gameBoard.dropToken(1)
     gameBoard.dropToken(1)
     gameBoard.dropToken(1)
-    gameBoard.dropToken(1)
+    expect(gameBoard.dropToken(1)).toBe(false)
   })
 })
 
