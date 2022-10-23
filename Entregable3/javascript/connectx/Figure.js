@@ -1,8 +1,10 @@
 export default class Figure {
-  isSelected = false
-  constructor(posX, posY, context) {
+  constructor(posX, posY) {
     this.posX = posX
     this.posY = posY
+  }
+
+  setContext(context) {
     this.context = context
   }
 
@@ -11,20 +13,14 @@ export default class Figure {
   }
 
   setPosition(x, y) {
-    console.log(`(${x},${y})`)
     this.posX = x
     this.posY = y
   }
 
-  isMouseOver() {
-    return true
-  }
-
-  setIsSelected(isSelected) {
-    this.isSelected = isSelected
-  }
-
-  isSelected() {
-    return this.isSelected
+  isMouseOver(x, y) {
+    return (
+      Math.sqrt(Math.pow(this.posX - x, 2) + Math.pow(this.posY - y, 2)) <
+      this.radius
+    )
   }
 }
