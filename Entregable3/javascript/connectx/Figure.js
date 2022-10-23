@@ -1,7 +1,9 @@
 export default class Figure {
-  constructor(posX, posY) {
+  constructor(posX, posY, imagePath) {
     this.posX = posX
     this.posY = posY
+    this.image = new Image()
+    this.image.src = imagePath
   }
 
   setContext(context) {
@@ -9,18 +11,22 @@ export default class Figure {
   }
 
   draw() {
-    throw new Error("Method 'draw()' must be implemented.")
+    this.image.onload = () => {
+      this.drawLogic()
+    }
+    this.drawLogic()
+  }
+
+  drawLogic() {
+    throw new Error("Method 'drawLogic()' must be implemented.")
+  }
+
+  isMouseOver(x, y) {
+    throw new Error("Method 'isMouseOver()' must be implemented.")
   }
 
   setPosition(x, y) {
     this.posX = x
     this.posY = y
-  }
-
-  isMouseOver(x, y) {
-    return (
-      Math.sqrt(Math.pow(this.posX - x, 2) + Math.pow(this.posY - y, 2)) <
-      this.radius
-    )
   }
 }

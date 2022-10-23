@@ -2,17 +2,8 @@ import Figure from "./Figure.js"
 
 export default class Token extends Figure {
   constructor(posX, posY, radius, imagePath) {
-    super(posX, posY)
+    super(posX, posY, imagePath)
     this.radius = radius
-    this.image = new Image()
-    this.image.src = imagePath
-  }
-
-  draw() {
-    this.image.onload = () => {
-      this.drawLogic()
-    }
-    this.drawLogic()
   }
 
   drawLogic() {
@@ -22,6 +13,13 @@ export default class Token extends Figure {
       this.posY - this.radius,
       this.radius * 2,
       this.radius * 2
+    )
+  }
+
+  isMouseOver(x, y) {
+    return (
+      Math.sqrt(Math.pow(this.posX - x, 2) + Math.pow(this.posY - y, 2)) <
+      this.radius
     )
   }
 }
