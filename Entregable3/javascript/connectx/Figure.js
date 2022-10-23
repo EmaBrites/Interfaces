@@ -29,4 +29,8 @@ export default class Figure {
     this.posX = x
     this.posY = y
   }
+
+  getPosition(){
+    return {posX: this.posX, posY: this.posY}
+  }
 }

@@ -1,5 +1,6 @@
 export default class Canvas {
   draggedFigure = null
+  lastDruggedFigure = null
   figures = []
 
   constructor(canvasElementId, width, height) {
@@ -46,6 +47,15 @@ export default class Canvas {
   }
 
   onMouseUp() {
+    this.lastDraggedFigure = this.draggedFigure
     this.draggedFigure = null
+  }
+
+  addListener(eventName,callback){
+    this.canvas.addEventListener(eventName,callback)
+  }
+
+  getLastDruggedFigure(){
+    return this.lastDraggedFigure
   }
 }

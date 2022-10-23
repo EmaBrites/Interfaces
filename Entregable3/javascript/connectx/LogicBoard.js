@@ -1,4 +1,4 @@
-class GameBoard {
+class LogicBoard {
   tokensPerLine
   board
   nextPlayer = 1
@@ -94,6 +94,22 @@ class GameBoard {
     return false
   }
 
+  getRowsAmount() {
+    return this.rowsAmount
+  }
+
+  getColumsAmount() {
+    return this.columnsAmount
+  }
+
+  findRowForNewToken(column) {
+    for (let r = this.rowsAmount - 1; r >= 0; r--) {
+      if (this.board[r][column] == undefined) return r
+    }
+    //si la columna elegida está llena devolvemos un valor discernible
+    return -1
+  }
+
   //#######################################
   //########## PRIVATE METHODS!!! ##########
 
@@ -129,14 +145,6 @@ class GameBoard {
     return count
   }
 
-  findRowForNewToken(column) {
-    for (let r = this.rowsAmount - 1; r >= 0; r--) {
-      if (this.board[r][column] == undefined) return r
-    }
-    //si la columna elegida está llena devolvemos un valor discernible
-    return -1
-  }
-
   getNextPlayer() {
     return this.nextPlayer
   }
@@ -146,4 +154,4 @@ class GameBoard {
   }
 }
 
-module.exports = { GameBoard }
+module.exports = { LogicBoard }
