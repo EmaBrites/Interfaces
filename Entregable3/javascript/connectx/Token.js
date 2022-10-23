@@ -1,16 +1,17 @@
 import Figure from "./Figure.js"
 
 export default class Token extends Figure {
-  constructor(posX, posY, context, radius) {
+  constructor(posX, posY, context, radius, imagePath) {
     super(posX, posY, context)
     this.radius = radius
+    this.image = new Image()
+    this.image.src = imagePath
   }
 
   draw() {
-    this.context.fillStyle = "red"
-    this.context.beginPath()
-    this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI)
-    this.context.fill()
-    this.context.closePath()
+    this.image.onload = () => {
+      this.context.drawImage(this.image, 0, 0)
+      this.context.beginPath()
+    }
   }
 }
