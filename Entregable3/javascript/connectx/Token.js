@@ -10,8 +10,9 @@ export default class Token extends Figure {
 
   draw() {
     this.image.onload = () => {
-      this.context.drawImage(this.image, 0, 0)
-      this.context.beginPath()
+      this.context.drawImage(this.image, this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
     }
+    this.context.drawImage(this.image, this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
   }
+  
 }
