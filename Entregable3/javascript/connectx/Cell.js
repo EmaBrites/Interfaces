@@ -16,7 +16,7 @@ export default class Cell extends Figure {
       this.size
     )
   }
-
+  
   isMouseOver(x, y) {
     return false
   }

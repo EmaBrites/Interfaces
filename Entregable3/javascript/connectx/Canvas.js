@@ -1,12 +1,16 @@
 export default class Canvas {
   draggedFigure = null
+  lastDruggedFigure = null
   figures = []
+  backgroundColor
+  mouseUpCallbacks = []
 
-  constructor(canvasElementId, width, height) {
+  constructor(canvasElementId, width, height, backgroundColor) {
     this.canvas = document.getElementById(canvasElementId)
     this.context = this.canvas.getContext("2d")
     this.canvas.width = width
     this.canvas.height = height
+    this.backgroundColor = backgroundColor
   }
 
   addFigure(figure) {
@@ -16,6 +20,8 @@ export default class Canvas {
 
   drawFigures() {
     this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    this.context.fillStyle = this.backgroundColor
+    this.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
     this.figures.forEach((figure) => figure.draw())
   }
 
@@ -33,8 +39,9 @@ export default class Canvas {
 
   onMouseDown(e) {
     const figure = this.figures.find((figure) =>
-      figure.isMouseOver(e.offsetX, e.offsetY)
+      figure.canBeDragged() && figure.isMouseOver(e.offsetX, e.offsetY)
     )
+    console.log(figure)
     if (typeof figure !== "undefined") this.draggedFigure = figure
   }
 
@@ -46,6 +53,18 @@ export default class Canvas {
   }
 
   onMouseUp() {
+    this.lastDraggedFigure = this.draggedFigure
     this.draggedFigure = null
+    if(this.lastDraggedFigure)
+      this.mouseUpCallbacks.forEach((callback) => callback())
+    
+  }
+
+  addMouseUpListener(callback) {
+    this.mouseUpCallbacks.push(callback)
+  }
+
+  getLastDruggedFigure() {
+    return this.lastDraggedFigure
   }
 }

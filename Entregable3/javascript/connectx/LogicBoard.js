@@ -1,4 +1,4 @@
-class GameBoard {
+export default class LogicBoard {
   tokensPerLine
   board
   nextPlayer = 1
@@ -51,14 +51,15 @@ class GameBoard {
     chosenColumn--
 
     const row = this.findRowForNewToken(chosenColumn)
+    console.log(`row: ${row}`)
     if (row === -1) {
       console.log(`the column ${chosenColumn} is full`)
       return false
     }
 
-    console.log(
-      `dropping token in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`
-    )
+    // console.log(
+    //   `dropping token in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`
+    // )
     this.board[row][chosenColumn] = this.nextPlayer
 
     this.nextPlayer = (this.nextPlayer % 2) + 1
@@ -92,6 +93,22 @@ class GameBoard {
         return true
     }
     return false
+  }
+
+  getRowsAmount() {
+    return this.rowsAmount
+  }
+
+  getColumnsAmount() {
+    return this.columnsAmount
+  }
+
+  findRowForNewToken(column) {
+    for (let r = this.rowsAmount - 1; r >= 0; r--) {
+      if (this.board[r][column] == undefined) return r
+    }
+    //si la columna elegida está llena devolvemos un valor discernible
+    return -1
   }
 
   //#######################################
@@ -129,14 +146,6 @@ class GameBoard {
     return count
   }
 
-  findRowForNewToken(column) {
-    for (let r = this.rowsAmount - 1; r >= 0; r--) {
-      if (this.board[r][column] == undefined) return r
-    }
-    //si la columna elegida está llena devolvemos un valor discernible
-    return -1
-  }
-
   getNextPlayer() {
     return this.nextPlayer
   }
@@ -145,5 +154,3 @@ class GameBoard {
     return (this.nextPlayer % 2) + 1
   }
 }
-
-module.exports = { GameBoard }
