@@ -3,6 +3,7 @@ export default class Canvas {
   lastDruggedFigure = null
   figures = []
   backgroundColor
+  mouseUpCallbacks = []
 
   constructor(canvasElementId, width, height, backgroundColor) {
     this.canvas = document.getElementById(canvasElementId)
@@ -38,8 +39,9 @@ export default class Canvas {
 
   onMouseDown(e) {
     const figure = this.figures.find((figure) =>
-      figure.isMouseOver(e.offsetX, e.offsetY)
+      figure.canBeDragged() && figure.isMouseOver(e.offsetX, e.offsetY)
     )
+    console.log(figure)
     if (typeof figure !== "undefined") this.draggedFigure = figure
   }
 
@@ -53,13 +55,16 @@ export default class Canvas {
   onMouseUp() {
     this.lastDraggedFigure = this.draggedFigure
     this.draggedFigure = null
+    if(this.lastDraggedFigure)
+      this.mouseUpCallbacks.forEach((callback) => callback())
+    
   }
 
-  addListener(eventName,callback){
-    this.canvas.addEventListener(eventName,callback)
+  addMouseUpListener(callback) {
+    this.mouseUpCallbacks.push(callback)
   }
 
-  getLastDruggedFigure(){
+  getLastDruggedFigure() {
     return this.lastDraggedFigure
   }
 }

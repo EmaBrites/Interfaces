@@ -18,8 +18,8 @@ export default class ConnectX {
     squareblue: "./assets/connectx/blue-square-token.png",
   }
 
-  cellSize = 63
-  tokenSize = 25
+  cellSize = 80
+  tokenSize = 32
   boardXPos = 200
   boardYPos = 400
   graphicBoard = []
@@ -73,8 +73,16 @@ export default class ConnectX {
     this.canvas.drawFigures()
   }
 
-  createAnDrawTokens(){
-    this.createAndDrawTokensForPlayer(this.tokenStylePlayer1Path,this.boardXPos - this.tokenSize*2)
+  createAnDrawTokens() {
+    this.createAndDrawTokensForPlayer(
+      this.tokenStylePlayer1Path,
+      this.boardXPos - this.tokenSize * 2
+    )
+    this.createAndDrawTokensForPlayer(
+      this.tokenStylePlayer2Path,
+      this.boardXPos +
+        this.tokenSize * 2 * (this.logicBoard.getColumnsAmount() + 3)
+    )
     this.canvas.drawFigures()
     this.canvas.startListeningMouseEvents()
   }
@@ -85,42 +93,48 @@ export default class ConnectX {
     for (let i = 0; i < this.tokensPerPlayer; i++) {
       token = new Token(
         xPos,
-        this.boardYPos + offset*this.tokenSize/2,
+        this.boardYPos + (offset * this.tokenSize) / 2,
         this.tokenSize,
         tokenStylePlayerPath
       )
-      this.canvas.addFigure(token);
+      this.canvas.addFigure(token)
       offset++
     }
-
   }
 
   onTokenDropped() {
-    const lastDraggedToken = this.canvas.getLastDruggedFigure()
-    const { posX, posY } = lastDraggedToken.getPosition()
-    const chosenColumn = calculateColumnOfToken(posX, posY)
-    if (chosenColumn === -1) lastDraggedToken.restorePosition()
-    else {
-      const row = this.logicBoard.findRowForNewToken(chosenColumn)
+    const that = this
+    return function () {
+      const lastDraggedToken = that.canvas.getLastDruggedFigure()
+      const { posX, posY } = lastDraggedToken.getPosition()
+      const chosenColumn = that.calculateColumnOfToken(posX, posY)
+      if (chosenColumn === -1) lastDraggedToken.restorePosition()
+      else {
+        const row = that.logicBoard.findRowForNewToken(chosenColumn -1)
+        //le resto 1 a la posición de la columna xq empiezan en cero por ser un arreglo
+        const cell = that.graphicBoard[chosenColumn - 1][row]
 
-      //le resto 1 a la posición de la columna xq empiezan en cero por ser un arreglo
-      const cell = this.graphicBoard[row][chosenColumn - 1]
-
-      this.logicBoard.dropToken(chosenColumn)
-      cell.drawTokenInside(lastDraggedToken)
-      this.canvas.drawFigures()
+        that.logicBoard.dropToken(chosenColumn)
+        cell.drawTokenInside(lastDraggedToken)
+        lastDraggedToken.disableDragging()
+      }
+      that.canvas.drawFigures()
     }
   }
 
-  calculateColumnOfToken(x, y) {
-    if (y >= this.boardYPos + this.cellSize) return -1
+  calculateColumnOfToken(posX, posY) {
+    if (posY >= this.boardYPos + this.cellSize) return -1
 
     if (
-      x < this.boardXPos ||
-      x > this.boardXPos + this.cellSize * this.tokensPerLine
+      posX < this.boardposXPos ||
+      posX > this.boardXPos + this.cellSize * this.logicBoard.getColumnsAmount()
     )
       return -1
 
-    return Math.ceil((x - this.boardXPos) / this.cellSize)
+    return Math.ceil((posX - this.boardXPos) / this.cellSize)
+  }
+
+  activateTokenDropping() {
+    this.canvas.addMouseUpListener(this.onTokenDropped())
   }
 }

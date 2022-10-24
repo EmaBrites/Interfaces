@@ -51,14 +51,15 @@ export default class LogicBoard {
     chosenColumn--
 
     const row = this.findRowForNewToken(chosenColumn)
+    console.log(`row: ${row}`)
     if (row === -1) {
       console.log(`the column ${chosenColumn} is full`)
       return false
     }
 
-    console.log(
-      `dropping token in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`
-    )
+    // console.log(
+    //   `dropping token in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`
+    // )
     this.board[row][chosenColumn] = this.nextPlayer
 
     this.nextPlayer = (this.nextPlayer % 2) + 1
