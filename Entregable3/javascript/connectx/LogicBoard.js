@@ -1,4 +1,4 @@
-class LogicBoard {
+export default class LogicBoard {
   tokensPerLine
   board
   nextPlayer = 1
@@ -98,7 +98,7 @@ class LogicBoard {
     return this.rowsAmount
   }
 
-  getColumsAmount() {
+  getColumnsAmount() {
     return this.columnsAmount
   }
 
@@ -153,5 +153,3 @@ class LogicBoard {
     return (this.nextPlayer % 2) + 1
   }
 }
-
-module.exports = { LogicBoard }

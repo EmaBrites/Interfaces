@@ -2,12 +2,14 @@ export default class Canvas {
   draggedFigure = null
   lastDruggedFigure = null
   figures = []
+  backgroundColor
 
-  constructor(canvasElementId, width, height) {
+  constructor(canvasElementId, width, height, backgroundColor) {
     this.canvas = document.getElementById(canvasElementId)
     this.context = this.canvas.getContext("2d")
     this.canvas.width = width
     this.canvas.height = height
+    this.backgroundColor = backgroundColor
   }
 
   addFigure(figure) {
@@ -17,6 +19,8 @@ export default class Canvas {
 
   drawFigures() {
     this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    this.context.fillStyle = this.backgroundColor
+    this.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
     this.figures.forEach((figure) => figure.draw())
   }
 

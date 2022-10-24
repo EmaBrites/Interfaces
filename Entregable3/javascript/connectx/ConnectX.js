@@ -1,6 +1,6 @@
 import Cell from "./Cell.js"
 import Canvas from "./Canvas.js"
-import LogicBoard from "./LogicBoard"
+import LogicBoard from "./LogicBoard.js"
 
 export default class ConnectX {
   cellsStyle = {
@@ -9,33 +9,38 @@ export default class ConnectX {
   }
 
   tokensStyle = {
-    roundRed: "/assets/connectx/red-token.png",
+    roundred: "/assets/connectx/red-token.png",
     roundgreen: "/assets/connectx/green-token.png",
     roundblue: "/assets/connectx/blue-token.png",
-    squareRed: "/assets/connectx/red-square-token.png",
-    squareGreen: "/assets/connectx/green-square-token.png",
-    squareBlue: "/assets/connectx/blue-square-token.png",
+    squarered: "/assets/connectx/red-square-token.png",
+    squaregreen: "/assets/connectx/green-square-token.png",
+    squareblue: "/assets/connectx/blue-square-token.png",
   }
 
   cellSize = 75
   tokenSize = 40
-  boardXPos = 0
-  boardYPos = 0
+  boardXPos = 200
+  boardYPos = 400
   graphicBoard = []
   logicBoard
   cellsStylePath
   tokenStylePlayer1Path
   tokenStylePlayer2Path
-  graphicBoard
   tokensPerLine
-  canvas = new Canvas("myCanvas", 400, 400)
+  tokensPerPlayer = 8
+  canvas = new Canvas("myCanvas", 1024, 1024,"gray")
 
-  constructor(tokensPerLine, cellStyle, tokenColorPlayer1, tokenColorPlayer2) {
-    this.tokensPerLine
+  constructor({
+    tokensPerLine,
+    cellStyle,
+    tokenColorPlayer1,
+    tokenColorPlayer2,
+  }) {
+    this.tokensPerLine = tokensPerLine
     this.logicBoard = new LogicBoard(tokensPerLine)
     this.cellsStylePath = this.cellsStyle[cellStyle]
-    this.tokenStylePlayer1Path = this.tokensStyle[tokenColorPlayer1]
-    this.tokenStylePlayer2Path = this.tokensStyle[tokenColorPlayer2]
+    this.tokenStylePlayer1Path = this.tokensStyle[cellStyle + tokenColorPlayer1]
+    this.tokenStylePlayer2Path = this.tokensStyle[cellStyle + tokenColorPlayer2]
   }
 
   createAndDrawGraphicalBoard() {
