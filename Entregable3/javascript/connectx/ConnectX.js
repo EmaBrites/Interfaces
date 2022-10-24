@@ -1,3 +1,4 @@
+import Token from "./Token.js"
 import Cell from "./Cell.js"
 import Canvas from "./Canvas.js"
 import LogicBoard from "./LogicBoard.js"
@@ -9,16 +10,16 @@ export default class ConnectX {
   }
 
   tokensStyle = {
-    roundred: "/assets/connectx/red-token.png",
-    roundgreen: "/assets/connectx/green-token.png",
-    roundblue: "/assets/connectx/blue-token.png",
-    squarered: "/assets/connectx/red-square-token.png",
-    squaregreen: "/assets/connectx/green-square-token.png",
-    squareblue: "/assets/connectx/blue-square-token.png",
+    roundred: "./assets/connectx/red-token.png",
+    roundgreen: "./assets/connectx/green-token.png",
+    roundblue: "./assets/connectx/blue-token.png",
+    squarered: "./assets/connectx/red-square-token.png",
+    squaregreen: "./assets/connectx/green-square-token.png",
+    squareblue: "./assets/connectx/blue-square-token.png",
   }
 
-  cellSize = 75
-  tokenSize = 40
+  cellSize = 63
+  tokenSize = 25
   boardXPos = 200
   boardYPos = 400
   graphicBoard = []
@@ -28,7 +29,7 @@ export default class ConnectX {
   tokenStylePlayer2Path
   tokensPerLine
   tokensPerPlayer = 8
-  canvas = new Canvas("myCanvas", 1024, 1024,"gray")
+  canvas = new Canvas("myCanvas", 1024, 1024, "gray")
 
   constructor({
     tokensPerLine,
@@ -70,6 +71,28 @@ export default class ConnectX {
     }
 
     this.canvas.drawFigures()
+  }
+
+  createAnDrawTokens(){
+    this.createAndDrawTokensForPlayer(this.tokenStylePlayer1Path,this.boardXPos - this.tokenSize*2)
+    this.canvas.drawFigures()
+    this.canvas.startListeningMouseEvents()
+  }
+
+  createAndDrawTokensForPlayer(tokenStylePlayerPath, xPos) {
+    let token
+    let offset = 0
+    for (let i = 0; i < this.tokensPerPlayer; i++) {
+      token = new Token(
+        xPos,
+        this.boardYPos + offset*this.tokenSize/2,
+        this.tokenSize,
+        tokenStylePlayerPath
+      )
+      this.canvas.addFigure(token);
+      offset++
+    }
+
   }
 
   onTokenDropped() {
