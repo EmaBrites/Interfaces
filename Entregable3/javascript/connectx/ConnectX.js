@@ -108,16 +108,16 @@ export default class ConnectX {
       const lastDraggedToken = that.canvas.getLastDruggedFigure()
       const { posX, posY } = lastDraggedToken.getPosition()
       const chosenColumn = that.calculateColumnOfToken(posX, posY)
-      if (chosenColumn === -1) lastDraggedToken.restorePosition()
+      if (chosenColumn <= 0) lastDraggedToken.restorePosition()
       else {
-        const row = that.logicBoard.findRowForNewToken(chosenColumn -1)
+        const row = that.logicBoard.findRowForNewToken(chosenColumn - 1)
         //le resto 1 a la posición de la columna xq empiezan en cero por ser un arreglo
+        console.log(`getting cell [${chosenColumn - 1}][${row}]`)
         const cell = that.graphicBoard[chosenColumn - 1][row]
 
-        if(that.logicBoard.dropToken(chosenColumn))
+        if (that.logicBoard.dropToken(chosenColumn))
           cell.drawTokenInside(lastDraggedToken)
-        else 
-          lastDraggedToken.restorePosition()
+        else lastDraggedToken.restorePosition()
         lastDraggedToken.disableDragging()
       }
       that.canvas.drawFigures()
