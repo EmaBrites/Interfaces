@@ -50,3 +50,7 @@
 .share:focus~button{
     display: flex;
 }
+
+#game{
+    display: none;
+}
