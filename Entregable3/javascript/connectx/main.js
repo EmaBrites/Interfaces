@@ -1,6 +1,5 @@
 import ConnectX from "./ConnectX.js"
 
-
 const gameConfiguration = {
   tokensPerLine: 4,
   cellStyle: "round",
@@ -8,8 +7,15 @@ const gameConfiguration = {
   tokenColorPlayer2: "blue"
 }
 
-let connectX = new ConnectX(gameConfiguration)
+let play = document.querySelector(".play-game-button")
+play.addEventListener("click", () => {
 
-connectX.createAndDrawGraphicalBoard()
-connectX.createAnDrawTokens()
-connectX.activateTokenDropping()
+  document.getElementById("game").style.display = "block"
+  document.querySelector(".play-game-button").style.display = "none"
+
+  let connectX = new ConnectX(gameConfiguration)
+
+  connectX.createAndDrawGraphicalBoard()
+  connectX.createAnDrawTokens()
+  connectX.activateTokenDropping()
+})

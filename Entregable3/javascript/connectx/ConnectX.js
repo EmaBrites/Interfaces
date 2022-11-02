@@ -18,18 +18,18 @@ export default class ConnectX {
     squareblue: "./assets/connectx/blue-square-token.png",
   }
 
-  cellSize = 80
-  tokenSize = 32
-  boardXPos = 200
-  boardYPos = 400
+  cellSize = 50
+  tokenSize = 20
+  boardXPos = 300
+  boardYPos = 150
   graphicBoard = []
   logicBoard
   cellsStylePath
   tokenStylePlayer1Path
   tokenStylePlayer2Path
   tokensPerLine
-  tokensPerPlayer = 8
-  canvas = new Canvas("myCanvas", 1024, 1024, "gray")
+  tokensPerPlayer = 21
+  canvas = new Canvas("game", 1000, 500, "gray")
 
   constructor({
     tokensPerLine,
@@ -114,8 +114,10 @@ export default class ConnectX {
         //le resto 1 a la posición de la columna xq empiezan en cero por ser un arreglo
         const cell = that.graphicBoard[chosenColumn - 1][row]
 
-        that.logicBoard.dropToken(chosenColumn)
-        cell.drawTokenInside(lastDraggedToken)
+        if(that.logicBoard.dropToken(chosenColumn))
+          cell.drawTokenInside(lastDraggedToken)
+        else 
+          lastDraggedToken.restorePosition()
         lastDraggedToken.disableDragging()
       }
       that.canvas.drawFigures()
