@@ -47,19 +47,22 @@ export default class LogicBoard {
   //########## PUBLIC METHODS!!! ##########
   //return true si la ficha se pudo agregar
   dropToken(chosenColumn) {
+    if(this.isGameOver()){
+      console.log("game is over")
+      return false
+    }
     //le resto 1 xq los arreglo empiezan en cero xD
     chosenColumn--
 
     const row = this.findRowForNewToken(chosenColumn)
-    console.log(`row: ${row}`)
     if (row === -1) {
       console.log(`the column ${chosenColumn} is full`)
       return false
     }
 
-    // console.log(
-    //   `dropping token in column:${chosenColumn}  row:${row} for player:${this.nextPlayer}`
-    // )
+    console.log(
+      `dropping token in column:${chosenColumn} row:${row} for player:${this.nextPlayer}`
+    )
     this.board[row][chosenColumn] = this.nextPlayer
 
     this.nextPlayer = (this.nextPlayer % 2) + 1
@@ -81,13 +84,6 @@ export default class LogicBoard {
   }
 
   haslastPlayerWon() {
-    console.log("checking if last player has won...")
-    console.log(
-      `last token played column:${this.lastChosenColumn} row:${
-        this.findRowForNewToken(this.lastChosenColumn) + 1
-      }`
-    )
-
     for (const line of Object.keys(this.lines)) {
       if (this.getAmoutOfEqualTokensInLine(line) >= this.tokensPerLine)
         return true
@@ -122,8 +118,7 @@ export default class LogicBoard {
       this.getAmountOfEqualTokensOfDirection(line.s1) +
       this.getAmountOfEqualTokensOfDirection(line.s2)
 
-    console.log(`line ${lineFunction} has an amount of ${amount} equal tokens`)
-    return amount
+      return amount
   }
 
   getAmountOfEqualTokensOfDirection(cardinalPoint) {
