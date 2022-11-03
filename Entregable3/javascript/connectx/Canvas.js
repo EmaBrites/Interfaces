@@ -5,12 +5,14 @@ export default class Canvas {
   backgroundColor
   mouseUpCallbacks = []
 
-  constructor(canvasElementId, width, height, backgroundColor) {
+  constructor(canvasElementId, width, height, backgroundColor,imagePath) {
     this.canvas = document.getElementById(canvasElementId)
     this.context = this.canvas.getContext("2d")
     this.canvas.width = width
     this.canvas.height = height
     this.backgroundColor = backgroundColor
+    this.image = new Image()
+    this.image.src = imagePath
   }
 
   addFigure(figure) {
@@ -22,6 +24,7 @@ export default class Canvas {
     this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     this.context.fillStyle = this.backgroundColor
     this.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
+    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
     this.figures.forEach((figure) => figure.draw())
   }
 
@@ -32,7 +35,7 @@ export default class Canvas {
     this.canvas.addEventListener("mousemove", (e) => {
       this.onMouseMove(e)
     })
-    this.canvas.addEventListener("mouseup", (e) => {
+    document.addEventListener("mouseup", (e) => {
       this.onMouseUp(e)
     })
   }
