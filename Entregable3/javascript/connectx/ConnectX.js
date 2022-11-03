@@ -10,9 +10,9 @@ export default class ConnectX {
   }
 
   tokensStyle = {
-    roundred: "./assets/connectx/red-token.png",
+    roundred: "./assets/connectx/ficha-roja1.png",
     roundgreen: "./assets/connectx/green-token.png",
-    roundblue: "./assets/connectx/blue-token.png",
+    roundblue: "./assets/connectx/ficha-azul1.png",
     squarered: "./assets/connectx/red-square-token.png",
     squaregreen: "./assets/connectx/green-square-token.png",
     squareblue: "./assets/connectx/blue-square-token.png",
@@ -29,7 +29,7 @@ export default class ConnectX {
   tokenStylePlayer2Path
   tokensPerLine
   tokensPerPlayer = 21
-  canvas = new Canvas("game", 1000, 500, "gray")
+  canvas = new Canvas("game", 1000, 500, "gray","./assets/connectx/fondo-juego.jpg")
 
   constructor({
     tokensPerLine,
