@@ -45,6 +45,10 @@ export default class Figure {
     this.drag = false
   }
 
+  enableDragging(){
+    this.drag = true
+  }
+
   canBeDragged(){
     return this.drag
   }
