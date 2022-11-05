@@ -18,17 +18,15 @@ export default class ConnectX {
     squareblue: "./assets/connectx/blue-square-token.png",
   }
 
-  cellSize = 50
-  tokenSize = 20
-  boardXPos = 300
-  boardYPos = 150
+  cellSize = 40
+  tokenSize = 15
+  boardYPos = 100
   graphicBoard = []
   logicBoard
   cellsStylePath
   tokenStylePlayer1Path
   tokenStylePlayer2Path
   tokensPerLine
-  tokensPerPlayer = 21
   canvas = new Canvas("game", 1000, 500, "gray","./assets/connectx/fondo-juego.jpg")
 
   constructor({
@@ -38,6 +36,8 @@ export default class ConnectX {
     tokenColorPlayer2,
   }) {
     this.tokensPerLine = tokensPerLine
+    this.tokensPerPlayer = (tokensPerLine + 2)*(tokensPerLine + 3)/2
+    this.boardXPos = this.canvas.getWidth() / 2 - this.cellSize * (tokensPerLine+3) / 2
     this.logicBoard = new LogicBoard(tokensPerLine)
     this.cellsStylePath = this.cellsStyle[cellStyle]
     this.tokenStylePlayer1Path = this.tokensStyle[cellStyle + tokenColorPlayer1]
@@ -80,8 +80,7 @@ export default class ConnectX {
     )
     this.createAndDrawTokensForPlayer(
       this.tokenStylePlayer2Path,
-      this.boardXPos +
-        this.tokenSize * 2 * (this.logicBoard.getColumnsAmount() + 3)
+      this.boardXPos + this.cellSize * this.logicBoard.getColumnsAmount() + this.tokenSize * 2
     )
     this.canvas.drawFigures()
     this.canvas.startListeningMouseEvents()
