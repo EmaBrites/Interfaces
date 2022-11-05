@@ -46,7 +46,7 @@ export default class ConnectX {
     tokenColorPlayer2,
   }) {
     this.tokensPerLine = tokensPerLine
-    this.logicBoard = new LogicBoard(tokensPerLine)
+    this.logicBoard = new LogicBoard(tokensPerLine,this.drawCallback(),this.winCallBack())
     this.cellsStylePath = this.cellsStyle[cellStyle]
     this.tokenStylePlayer1Path = this.tokensStyle[cellStyle + tokenColorPlayer1]
     this.tokenStylePlayer2Path = this.tokensStyle[cellStyle + tokenColorPlayer2]
@@ -130,7 +130,8 @@ export default class ConnectX {
           cell.drawTokenInside(lastDraggedToken)
           that.disableTokensOfPlayer(that.logicBoard.getLastPlayer())
           that.removeFromPlayerTokensLeft(lastDraggedToken)
-          that.enableTokensOfPlayer(that.logicBoard.getNextPlayer())
+          if(!that.logicBoard.isGameOver())
+            that.enableTokensOfPlayer(that.logicBoard.getNextPlayer())
         } else lastDraggedToken.restorePosition()
       }
       that.canvas.drawFigures()
@@ -169,5 +170,20 @@ export default class ConnectX {
 
   activateTokenDropping() {
     this.canvas.addMouseUpListener(this.onTokenDropped())
+  }
+
+  drawCallback(){
+    return function(){
+      console.log("GAME OVER: DRAW")
+    }
+  }
+
+  winCallBack(){
+    const that = this
+    return function(){
+      that.disableTokensOfPlayer(1)
+      that.disableTokensOfPlayer(2)
+      console.log(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
+    }
   }
 }
