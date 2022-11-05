@@ -1,7 +1,7 @@
 import ConnectX from "./ConnectX.js"
 
 const gameConfiguration = {
-  tokensPerLine: 4,
+  tokensPerLine: 7,
   cellStyle: "round",
   tokenColorPlayer1: "red",
   tokenColorPlayer2: "blue"
