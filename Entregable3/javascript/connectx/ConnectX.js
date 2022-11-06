@@ -2,6 +2,7 @@ import Token from "./Token.js"
 import Cell from "./Cell.js"
 import Canvas from "./Canvas.js"
 import LogicBoard from "./LogicBoard.js"
+import Timer from "./Timer.js"
 
 export default class ConnectX {
   cellsStyle = {
@@ -21,6 +22,7 @@ export default class ConnectX {
   cellSize = 40
   tokenSize = 15
   boardYPos = 100
+  timerPos = {X:470,Y:40}
   graphicBoard = []
   logicBoard
   cellsStylePath
@@ -46,16 +48,16 @@ export default class ConnectX {
   }) {
     this.tokensPerLine = tokensPerLine
     this.tokensPerPlayer = ((tokensPerLine + 2) * (tokensPerLine + 3)) / 2
-    this.boardXPos =
-      this.canvas.getWidth() / 2 - (this.cellSize * (tokensPerLine + 3)) / 2
-    this.logicBoard = new LogicBoard(
-      tokensPerLine,
-      this.drawCallback(),
-      this.winCallBack()
-    )
+    this.boardXPos = this.canvas.getWidth() / 2 - (this.cellSize * (tokensPerLine + 3)) / 2
+    this.logicBoard = new LogicBoard(tokensPerLine, this.drawCallback(), this.winCallBack())
+    this.timer = new Timer(this.timerPos.X,this.timerPos.Y)
+    this.canvas.setTimer(this.timer)
     this.cellsStylePath = this.cellsStyle[cellStyle]
     this.tokenStylePlayer1Path = this.tokensStyle[cellStyle + tokenColorPlayer1]
     this.tokenStylePlayer2Path = this.tokensStyle[cellStyle + tokenColorPlayer2]
+    this.createAndDrawGraphicalBoard()
+    this.createAnDrawTokens()
+    this.activateTokenDropping()
   }
 
   createAndDrawGraphicalBoard() {
@@ -142,6 +144,8 @@ export default class ConnectX {
         } else lastDraggedToken.restorePosition()
       }
       that.canvas.drawFigures()
+      if (that.logicBoard.isGameOver()) {
+      }
     }
   }
 
@@ -182,6 +186,7 @@ export default class ConnectX {
   drawCallback() {
     return function () {
       console.log("GAME OVER: DRAW")
+      that.canvas.drawGameOver("GAME OVER: DRAW")
     }
   }
 
@@ -193,6 +198,7 @@ export default class ConnectX {
       console.log(
         `GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`
       )
+      that.canvas.drawGameOver(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
     }
   }
 }
