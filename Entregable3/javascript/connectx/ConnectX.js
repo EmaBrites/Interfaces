@@ -97,7 +97,8 @@ export default class ConnectX {
       this.tokenStylePlayer2Path,
       this.boardXPos +
         this.cellSize * this.logicBoard.getColumnsAmount() +
-        this.tokenSize * 2
+        this.tokenSize * 2,
+      this.tokensLeftPlayer2
     )
     this.disableTokensOfPlayer(2)
     this.canvas.drawFigures()
