@@ -45,7 +45,6 @@ export default class Canvas {
     const figure = this.figures.find((figure) =>
       figure.canBeDragged() && figure.isMouseOver(e.offsetX, e.offsetY)
     )
-    console.log(figure)
     if (typeof figure !== "undefined") this.draggedFigure = figure
   }
 

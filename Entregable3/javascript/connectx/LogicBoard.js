@@ -29,7 +29,7 @@ export default class LogicBoard {
     "y = -1": { s1: "NW", s2: "SE" },
   }
 
-  constructor(tokensPerLine) {
+  constructor(tokensPerLine, drawCallBack, lastPlayerWonCallback) {
     this.tokensPerLine = tokensPerLine
 
     //se agrega una fila y una columna por cada extra ficha que se quiera agregar después del 4 en linea para hacer el 5, 6 o 7 en linea
@@ -41,6 +41,8 @@ export default class LogicBoard {
       .fill()
       .map(() => Array(this.columnsAmount).fill())
     this.spacesLeft = this.rowsAmount * this.columnsAmount
+    this.drawCallBack = drawCallBack
+    this.lastPlayerWonCallback = lastPlayerWonCallback
   }
 
   //#######################################
@@ -51,7 +53,6 @@ export default class LogicBoard {
     chosenColumn--
 
     const row = this.findRowForNewToken(chosenColumn)
-    console.log(`row: ${row}`)
     if (row === -1) {
       console.log(`the column ${chosenColumn} is full`)
       return false
@@ -69,7 +70,16 @@ export default class LogicBoard {
   }
 
   isGameOver() {
-    return this.spacesLeft === 0 || this.haslastPlayerWon()
+    if (this.spacesLeft === 0) {
+      this.drawCallBack()
+      return true
+    }
+    if (this.haslastPlayerWon()) {
+      this.lastPlayerWonCallback()
+      return true
+    }
+
+    return false
   }
 
   getNextPlayer() {
@@ -82,12 +92,6 @@ export default class LogicBoard {
 
   haslastPlayerWon() {
     console.log("checking if last player has won...")
-    console.log(
-      `last token played column:${this.lastChosenColumn} row:${
-        this.findRowForNewToken(this.lastChosenColumn) + 1
-      }`
-    )
-
     for (const line of Object.keys(this.lines)) {
       if (this.getAmoutOfEqualTokensInLine(line) >= this.tokensPerLine)
         return true
@@ -121,8 +125,6 @@ export default class LogicBoard {
       1 +
       this.getAmountOfEqualTokensOfDirection(line.s1) +
       this.getAmountOfEqualTokensOfDirection(line.s2)
-
-    console.log(`line ${lineFunction} has an amount of ${amount} equal tokens`)
     return amount
   }
 
