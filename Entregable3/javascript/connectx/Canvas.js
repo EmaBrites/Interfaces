@@ -4,6 +4,7 @@ export default class Canvas {
   figures = []
   backgroundColor
   mouseUpCallbacks = []
+  timer = null
 
   constructor(canvasElementId, width, height, backgroundColor,imagePath) {
     this.canvas = document.getElementById(canvasElementId)
@@ -14,11 +15,16 @@ export default class Canvas {
     this.image = new Image()
     this.image.src = imagePath
     this.image.onload = () => this.drawFigures()
+    this.interval =setInterval(() => this.drawFigures(), 1000)
   }
 
   addFigure(figure) {
     figure.setContext(this.context)
     this.figures.push(figure)
+  }
+
+  setTimer(timer) {
+    this.timer = timer
   }
 
   drawFigures() {
@@ -27,6 +33,10 @@ export default class Canvas {
     this.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
     this.figures.forEach((figure) => figure.draw())
+    this.timer.draw(this.context)
+    if (this.timer.isOver()) {
+      this.drawGameOver()
+    }
   }
 
   startListeningMouseEvents() {
@@ -73,5 +83,14 @@ export default class Canvas {
 
   getWidth() {
     return this.canvas.width
+  }
+
+  drawGameOver(message) {
+    clearInterval(this.interval)
+    this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
+    this.context.font = "30px Silkscreen"
+    this.context.fillStyle = "white"
+    this.context.fillText(message, 10, 40) 
   }
 }
