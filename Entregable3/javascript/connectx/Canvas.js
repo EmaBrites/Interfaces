@@ -13,6 +13,7 @@ export default class Canvas {
     this.backgroundColor = backgroundColor
     this.image = new Image()
     this.image.src = imagePath
+    this.image.onload = () => this.drawFigures()
   }
 
   addFigure(figure) {
@@ -68,5 +69,9 @@ export default class Canvas {
 
   getLastDruggedFigure() {
     return this.lastDraggedFigure
+  }
+
+  getWidth() {
+    return this.canvas.width
   }
 }
