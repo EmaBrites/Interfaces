@@ -23,6 +23,10 @@
     border-radius: 50%;
 }
 
+.hidden{
+    display: none;
+}
+
 .game-actions{
     display: flex;
     
@@ -49,8 +53,4 @@
 
 .share:focus~button{
     display: flex;
-}
-
-#game{
-    display: none;
 }
