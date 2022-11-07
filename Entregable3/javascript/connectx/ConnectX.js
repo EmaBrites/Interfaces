@@ -12,9 +12,9 @@ export default class ConnectX {
   }
 
   tokensStyle = {
-    roundred: "./assets/connectx/ficha-roja1.png",
+    roundred: "./assets/connectx/red-token.png",
     roundgreen: "./assets/connectx/green-token.png",
-    roundblue: "./assets/connectx/ficha-azul1.png",
+    roundblue: "./assets/connectx/blue-token.png",
     squarered: "./assets/connectx/red-square-token.png",
     squaregreen: "./assets/connectx/green-square-token.png",
     squareblue: "./assets/connectx/blue-square-token.png",
@@ -36,7 +36,8 @@ export default class ConnectX {
     1000,
     500,
     "gray",
-    "./assets/connectx/fondo-juego.jpg"
+    "./assets/connectx/fondo-juego.jpg",
+    this.resetCallBack()
   )
   tokensLeftPlayer1 = []
   tokensLeftPlayer2 = []
@@ -53,14 +54,21 @@ export default class ConnectX {
     this.logicBoard = new LogicBoard(tokensPerLine, this.drawCallback(), this.winCallBack())
     this.timer = new Timer(this.timerPos.X,this.timerPos.Y)
     this.canvas.setTimer(this.timer)
-    this.resetButton = new ResetButton(this.canvas.getWidth() - 100, 20, 80,"./assets/connectx/reset.png")
-    this.canvas.addFigure(this.resetButton)
+    this.resetButton = new ResetButton(this.canvas.getWidth() - 60, 70, 50,"./assets/connectx/reset.png")
+    this.canvas.setResetButton(this.resetButton)
     this.cellsStylePath = this.cellsStyle[cellStyle]
     this.tokenStylePlayer1Path = this.tokensStyle[cellStyle + tokenColorPlayer1]
     this.tokenStylePlayer2Path = this.tokensStyle[cellStyle + tokenColorPlayer2]
     this.createAndDrawGraphicalBoard()
     this.createAnDrawTokens()
     this.activateTokenDropping()
+    this.interval =setInterval(() => {
+      this.canvas.drawFigures()
+      console.log("is over? " + this.timer.isOver())
+      if(this.timer.isOver()) {
+        this.logicBoard.drawCallBack()
+      }
+    }, 1000)
   }
 
   createAndDrawGraphicalBoard() {
@@ -169,6 +177,7 @@ export default class ConnectX {
   enableTokensOfPlayer(player) {
     const arr = player === 1 ? this.tokensLeftPlayer1 : this.tokensLeftPlayer2
     arr.forEach((t) => t.enableDragging())
+    console.log(player)
   }
 
   calculateColumnOfToken(posX, posY) {
@@ -188,9 +197,11 @@ export default class ConnectX {
   }
 
   drawCallback() {
+    const that = this
     return function () {
       console.log("GAME OVER: DRAW")
       that.canvas.drawGameOver("GAME OVER: DRAW")
+      clearInterval(that.interval)
     }
   }
 
@@ -201,6 +212,21 @@ export default class ConnectX {
       that.disableTokensOfPlayer(2)
       console.log(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
       that.canvas.drawGameOver(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
+      clearInterval(that.interval)
+    }
+  }
+
+  resetCallBack() {
+    const that = this
+    return function () {
+      let message = document.getElementById("message")
+      document.getElementById("game").classList.add("hidden")
+      message.classList.remove("hidden")
+      message.innerHTML = "Choose a game mode"
+      document.querySelectorAll(".game-mode-button").forEach((element) => {
+        element.classList.remove("hidden")    
+      })
+    clearInterval(that.interval)
     }
   }
 }
