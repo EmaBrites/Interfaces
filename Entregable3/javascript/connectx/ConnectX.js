@@ -3,6 +3,7 @@ import Cell from "./Cell.js"
 import Canvas from "./Canvas.js"
 import LogicBoard from "./LogicBoard.js"
 import Timer from "./Timer.js"
+import ResetButton from "./ResetButton.js"
 
 export default class ConnectX {
   cellsStyle = {
@@ -52,6 +53,8 @@ export default class ConnectX {
     this.logicBoard = new LogicBoard(tokensPerLine, this.drawCallback(), this.winCallBack())
     this.timer = new Timer(this.timerPos.X,this.timerPos.Y)
     this.canvas.setTimer(this.timer)
+    this.resetButton = new ResetButton(this.canvas.getWidth() - 100, 20, 80,"./assets/connectx/reset.png")
+    this.canvas.addFigure(this.resetButton)
     this.cellsStylePath = this.cellsStyle[cellStyle]
     this.tokenStylePlayer1Path = this.tokensStyle[cellStyle + tokenColorPlayer1]
     this.tokenStylePlayer2Path = this.tokensStyle[cellStyle + tokenColorPlayer2]

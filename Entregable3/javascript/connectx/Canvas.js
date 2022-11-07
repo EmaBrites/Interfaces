@@ -56,6 +56,7 @@ export default class Canvas {
       figure.canBeDragged() && figure.isMouseOver(e.offsetX, e.offsetY)
     )
     if (typeof figure !== "undefined") this.draggedFigure = figure
+    if (typeof figure !== "ResetButton") this.reset()
   }
 
   onMouseMove(e) {
@@ -92,5 +93,13 @@ export default class Canvas {
     this.context.font = "30px Silkscreen"
     this.context.fillStyle = "white"
     this.context.fillText(message, 10, 40) 
+  }
+
+  reset() {
+    document.getElementById("game").classList.add("hidden")
+    document.querySelectorAll(".game-mode-button").forEach((element) => {
+      element.classList.remove("hidden")
+    })
+    clearInterval(this.interval)
   }
 }
