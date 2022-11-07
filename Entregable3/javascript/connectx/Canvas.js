@@ -55,8 +55,12 @@ export default class Canvas {
     const figure = this.figures.find((figure) =>
       figure.canBeDragged() && figure.isMouseOver(e.offsetX, e.offsetY)
     )
-    if (typeof figure !== "undefined") this.draggedFigure = figure
-    if (typeof figure !== "ResetButton") this.reset()
+    if (typeof figure !== "undefined"){
+      console.log(figure.constructor.name)
+      this.draggedFigure = figure
+      if (figure.constructor.name === "ResetButton") this.reset()
+    }
+
   }
 
   onMouseMove(e) {

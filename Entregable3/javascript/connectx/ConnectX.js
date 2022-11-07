@@ -198,9 +198,7 @@ export default class ConnectX {
     return function () {
       that.disableTokensOfPlayer(1)
       that.disableTokensOfPlayer(2)
-      console.log(
-        `GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`
-      )
+      console.log(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
       that.canvas.drawGameOver(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
     }
   }
