@@ -132,6 +132,7 @@ export default class ConnectX {
       const lastDraggedToken = that.canvas.getLastDruggedFigure()
       const { posX, posY } = lastDraggedToken.getPosition()
       const chosenColumn = that.calculateColumnOfToken(posX, posY)
+      let gameOver = false;
       if (chosenColumn === -1) lastDraggedToken.restorePosition()
       else {
         const row = that.logicBoard.findRowForNewToken(chosenColumn - 1)
@@ -142,13 +143,13 @@ export default class ConnectX {
           cell.drawTokenInside(lastDraggedToken)
           that.disableTokensOfPlayer(that.logicBoard.getLastPlayer())
           that.removeFromPlayerTokensLeft(lastDraggedToken)
-          if (!that.logicBoard.isGameOver())
+          gameOver = that.logicBoard.isGameOver()
+          if (!gameOver)
             that.enableTokensOfPlayer(that.logicBoard.getNextPlayer())
         } else lastDraggedToken.restorePosition()
       }
-      that.canvas.drawFigures()
-      if (that.logicBoard.isGameOver()) {
-      }
+      if(!gameOver)
+        that.canvas.drawFigures()
     }
   }
 
