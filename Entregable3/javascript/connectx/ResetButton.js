@@ -7,10 +7,6 @@ export default class ResetButton extends Figure {
         this.height = size
     }
     
-    setContext(context){
-        this.context = context
-    }
-    
     drawLogic(){
         this.context.drawImage(this.image, this.posX, this.posY, this.width, this.height)
     }

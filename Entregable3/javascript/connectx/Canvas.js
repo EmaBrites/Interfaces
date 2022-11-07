@@ -5,17 +5,18 @@ export default class Canvas {
   backgroundColor
   mouseUpCallbacks = []
   timer = null
+  resetButton
 
-  constructor(canvasElementId, width, height, backgroundColor,imagePath) {
+  constructor(canvasElementId, width, height, backgroundColor,imagePath,resetCallback) {
     this.canvas = document.getElementById(canvasElementId)
     this.context = this.canvas.getContext("2d")
     this.canvas.width = width
     this.canvas.height = height
     this.backgroundColor = backgroundColor
+    this.resetCallback = resetCallback
     this.image = new Image()
     this.image.src = imagePath
     this.image.onload = () => this.drawFigures()
-    this.interval =setInterval(() => this.drawFigures(), 1000)
   }
 
   addFigure(figure) {
@@ -27,6 +28,11 @@ export default class Canvas {
     this.timer = timer
   }
 
+  setResetButton(resetButton) {
+    this.resetButton = resetButton
+    this.resetButton.setContext(this.context)
+  }
+
   drawFigures() {
     this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     this.context.fillStyle = this.backgroundColor
@@ -34,9 +40,7 @@ export default class Canvas {
     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
     this.figures.forEach((figure) => figure.draw())
     this.timer.draw(this.context)
-    if (this.timer.isOver()) {
-      this.drawGameOver()
-    }
+    this.resetButton.draw()
   }
 
   startListeningMouseEvents() {
@@ -58,9 +62,8 @@ export default class Canvas {
     if (typeof figure !== "undefined"){
       console.log(figure.constructor.name)
       this.draggedFigure = figure
-      if (figure.constructor.name === "ResetButton") this.reset()
     }
-
+    if (this.resetButton.isMouseOver(e.offsetX, e.offsetY)) this.reset()  
   }
 
   onMouseMove(e) {
@@ -91,19 +94,18 @@ export default class Canvas {
   }
 
   drawGameOver(message) {
-    clearInterval(this.interval)
     this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    this.context.fillStyle = this.backgroundColor
+    this.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
     this.context.font = "30px Silkscreen"
     this.context.fillStyle = "white"
     this.context.fillText(message, 10, 40) 
+    this.figures.forEach((figure) => figure.draw())
+    this.resetButton.draw()
   }
 
   reset() {
-    document.getElementById("game").classList.add("hidden")
-    document.querySelectorAll(".game-mode-button").forEach((element) => {
-      element.classList.remove("hidden")
-    })
-    clearInterval(this.interval)
+    this.resetCallback()
   }
 }

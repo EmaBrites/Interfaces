@@ -8,6 +8,11 @@
     backdrop-filter: blur(5px);
 }
 
+.game-secttion h1,
+.game-secttion h2{
+    font-family: "Silkscreen";
+}
+
 .game-container{
     width: 80%;
     height: 500px;
@@ -23,13 +28,22 @@
     border-radius: 50%;
 }
 
-.hidden{
-    display: none;
+.game-mode-button{
+    width: 250px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.player-token-button{
+    width: 200px;
+    height: 150px;
+    border-radius: 30px;
+    margin: 10px;
 }
 
 .game-actions{
     display: flex;
-    
 }
 
 .game-actions .row{
@@ -53,4 +67,8 @@
 
 .share:focus~button{
     display: flex;
+}
+
+.hidden{
+    display: none;
 }

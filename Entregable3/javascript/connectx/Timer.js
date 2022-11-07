@@ -7,7 +7,7 @@ export default class Timer{
     constructor(posX, posY){
         this.posX = posX
         this.posY = posY
-        this.countDown = 60000;
+        this.countDown = 5000;
         this.finished = false;
         this.interval = setInterval(() => {
 

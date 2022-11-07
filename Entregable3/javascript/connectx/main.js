@@ -7,6 +7,7 @@ const gameConfiguration = {
   tokenColorPlayer2: ""
 }
 let game
+let message = document.getElementById("message")
 let playButton = document.querySelector(".play-game-button")
 let modeButtons = document.querySelectorAll(".game-mode-button")
 let tokenButtons = document.querySelectorAll(".player-token-button")
@@ -16,7 +17,8 @@ playButton.addEventListener("click", () => {
   modeButtons.forEach((element) => {
     element.classList.remove("hidden")
   })
-
+  message.innerHTML = "Choose a game mode"
+  message.classList.remove("hidden")
 })
 
 modeButtons.forEach((button) => {
@@ -28,27 +30,26 @@ modeButtons.forEach((button) => {
     tokenButtons.forEach((button) => {
       button.classList.remove("hidden")
     })
+    message.innerHTML = "Choose a token color player 1"
   })
 })
 
 tokenButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    console.log("entrada")
-    console.log(gameConfiguration)
     if(game) resetGame()
     if (gameConfiguration.tokenColorPlayer1 === "") {
       gameConfiguration.tokenColorPlayer1 = button.dataset.token
       button.classList.add("hidden")
+      message.innerHTML = "Choose a token color player 2"
     }else{
       gameConfiguration.tokenColorPlayer2 = button.dataset.token
       tokenButtons.forEach((button) => {
         button.classList.add("hidden")
       })
+      message.classList.add("hidden")
       game = new ConnectX(gameConfiguration)
       document.getElementById("game").classList.remove("hidden")
     }
-    console.log("salida")
-    console.log(gameConfiguration)
   })
 })
 
