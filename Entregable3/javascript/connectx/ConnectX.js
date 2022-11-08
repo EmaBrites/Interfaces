@@ -64,7 +64,6 @@ export default class ConnectX {
     this.activateTokenDropping()
     this.interval =setInterval(() => {
       this.canvas.drawFigures()
-      console.log("is over? " + this.timer.isOver())
       if(this.timer.isOver()) {
         this.logicBoard.drawCallBack()
       }
@@ -201,6 +200,7 @@ export default class ConnectX {
     return function () {
       console.log("GAME OVER: DRAW")
       that.canvas.drawGameOver("GAME OVER: DRAW")
+      that.canvas.removeEventListeners()
       clearInterval(that.interval)
     }
   }
@@ -212,6 +212,7 @@ export default class ConnectX {
       that.disableTokensOfPlayer(2)
       console.log(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
       that.canvas.drawGameOver(`GAME OVER: PLAYER ${that.logicBoard.getLastPlayer()} HAS WON`)
+      that.canvas.removeEventListeners()
       clearInterval(that.interval)
     }
   }

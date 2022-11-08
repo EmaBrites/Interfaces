@@ -47,12 +47,10 @@ export default class Canvas {
     this.canvas.addEventListener("mousedown", (e) => {
       this.onMouseDown(e)
     })
-    this.canvas.addEventListener("mousemove", (e) => {
-      this.onMouseMove(e)
-    })
-    document.addEventListener("mouseup", (e) => {
-      this.onMouseUp(e)
-    })
+    this.move = (e) => this.onMouseMove(e)
+    this.canvas.addEventListener("mousemove", this.move)
+    this.up = (e) => this.onMouseUp(e)
+    document.addEventListener("mouseup", this.up)
   }
 
   onMouseDown(e) {
@@ -107,5 +105,10 @@ export default class Canvas {
 
   reset() {
     this.resetCallback()
+  }
+
+  removeEventListeners(){
+    this.canvas.removeEventListener("mousemove", this.move)
+    this.mouseUpCallbacks = []
   }
 }
