@@ -52,7 +52,7 @@ export default class ConnectX {
     this.tokensPerPlayer = ((tokensPerLine + 2) * (tokensPerLine + 3)) / 2
     this.boardXPos = this.canvas.getWidth() / 2 - (this.cellSize * (tokensPerLine + 3)) / 2
     this.logicBoard = new LogicBoard(tokensPerLine, this.drawCallback(), this.winCallBack())
-    this.timer = new Timer(this.timerPos.X,this.timerPos.Y)
+    this.timer = new Timer(this.timerPos.X,this.timerPos.Y,60000)
     this.canvas.setTimer(this.timer)
     this.resetButton = new ResetButton(this.canvas.getWidth() - 60, 70, 50,"./assets/connectx/reset.png")
     this.canvas.setResetButton(this.resetButton)
@@ -176,7 +176,7 @@ export default class ConnectX {
   enableTokensOfPlayer(player) {
     const arr = player === 1 ? this.tokensLeftPlayer1 : this.tokensLeftPlayer2
     arr.forEach((t) => t.enableDragging())
-    console.log(player)
+    this.canvas.setPlayerTurn(player)
   }
 
   calculateColumnOfToken(posX, posY) {
