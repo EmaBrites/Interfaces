@@ -1,3 +1,5 @@
+import Gametext from "./GameText.js";
+
 export default class Canvas {
   draggedFigure = null
   lastDruggedFigure = null
@@ -6,6 +8,7 @@ export default class Canvas {
   mouseUpCallbacks = []
   timer = null
   resetButton
+  turn = new Gametext(415, 90, "Player 1")
 
   constructor(canvasElementId, width, height, backgroundColor,imagePath,resetCallback) {
     this.canvas = document.getElementById(canvasElementId)
@@ -33,14 +36,19 @@ export default class Canvas {
     this.resetButton.setContext(this.context)
   }
 
+  setPlayerTurn(player){
+    this.turn.setText(`Player ${player}`)
+  }
+
   drawFigures() {
     this.context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     this.context.fillStyle = this.backgroundColor
     this.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height)
-    this.figures.forEach((figure) => figure.draw())
     this.timer.draw(this.context)
+    this.turn.draw(this.context)
     this.resetButton.draw()
+    this.figures.forEach((figure) => figure.draw())
   }
 
   startListeningMouseEvents() {
@@ -58,7 +66,6 @@ export default class Canvas {
       figure.canBeDragged() && figure.isMouseOver(e.offsetX, e.offsetY)
     )
     if (typeof figure !== "undefined"){
-      console.log(figure.constructor.name)
       this.draggedFigure = figure
     }
     if (this.resetButton.isMouseOver(e.offsetX, e.offsetY)) this.reset()  
