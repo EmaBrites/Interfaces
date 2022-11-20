@@ -2,7 +2,7 @@ menu{
     background-color: var(--principal-menos1);
     width: 100%;
     position: absolute;
-    top:0;
+    top:100px;
     left: 0;
     display: none;
     grid-template-rows: 0.5fr 1.5fr 1fr 1fr;

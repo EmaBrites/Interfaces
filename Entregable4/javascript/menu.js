@@ -1,25 +1,21 @@
 const burgerMenu = document.getElementsByClassName("burger-menu")[0];
 const menu = document.getElementsByTagName("menu")[0];
-const closeBtn = document.getElementsByClassName("close-btn")[0];
+const bar1 = document.getElementById("bar1")
+const bar2 = document.getElementById("bar2")
+const bar3 = document.getElementById("bar3")
 let isMenuOpen = false;
 
 burgerMenu.addEventListener("click",(event)=>{
-    menu.style.display = "grid";
-    isMenuOpen = true;
-    event.stopPropagation()
+    toogleMenuClasses(event);
 })
 
 menu.addEventListener("click",(event)=>{
     event.stopPropagation()
 })
 
-window.addEventListener("click",()=>{
+window.addEventListener("click",(event)=>{
     if(isMenuOpen)
-        menu.style.display = "none";
-})
-
-closeBtn.addEventListener("click",()=>{
-    menu.style.display = "none";
+        toogleMenuClasses(event)
 })
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -31,3 +27,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+
+function toogleMenuClasses(event){
+    bar1.classList.toggle("bar-animation-config")
+    bar1.classList.toggle("bar1-animation")
+    bar2.classList.toggle("bar-animation-config")
+    bar2.classList.toggle("bar2-animation")
+    bar3.classList.toggle("bar-animation-config")
+    bar3.classList.toggle("bar3-animation")
+    menu.style.display = isMenuOpen ? "none" : "grid";
+    isMenuOpen = !isMenuOpen;
+    event.stopPropagation()
+}

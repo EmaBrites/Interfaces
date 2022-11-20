@@ -1,0 +1,53 @@
+#bar1{
+    top: 0;
+}
+
+#bar3{
+    bottom: 0;
+}
+
+.bar1-animation{
+    animation-name: rotate45;
+}
+
+.bar2-animation{
+    animation-name: rotateMinus45;
+}
+
+.bar3-animation{
+    animation-name: vanish;
+}
+
+.bar-animation-config{
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes rotate45{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(45deg); top:10px}
+}
+
+@keyframes rotateMinus45{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-45deg);}
+}
+
+@keyframes vanish{
+    0%   {opacity: 1}
+    100% {opacity: 0}
+}
+
+.bar{
+    width: 30px;
+    height: 6px;
+    background-color: var(--blanco);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    position: absolute;
+}
+
+.burger-menu-container{
+    position:relative;
+}
