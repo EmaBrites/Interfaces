@@ -1,0 +1,32 @@
+.feature{
+    width: var(--max-width-container);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feature-card {
+    width: 80%;
+    height: 400px;
+    margin: 10px;
+}
+
+.feature-card h1 {
+    position: relative;
+    left: 50px;
+    top: -350px;
+    color: var(--acento);
+    width: 90%;
+}
+
+.feature-card p{
+    position: relative;
+    left: 100px;
+    top: -300px;
+    width: 80%;
+}
+
+.feature-card img{
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}

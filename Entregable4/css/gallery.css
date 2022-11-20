@@ -1,0 +1,18 @@
+.gallery img{
+    opacity: 0;
+}
+
+.gallery img:first-child{
+    opacity: 1;
+}
+
+.gallery img:target{
+    opacity: 1;
+}
+
+.description-section .carousel img{
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    object-fit: cover;
+}

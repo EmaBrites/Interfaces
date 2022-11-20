@@ -1,0 +1,22 @@
+{
+  "name": "interfaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmaBrites/Interfaces.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmaBrites/Interfaces/issues"
+  },
+  "homepage": "https://github.com/EmaBrites/Interfaces#readme",
+  "devDependencies": {
+    "jest": "^29.2.1"
+  }
+}

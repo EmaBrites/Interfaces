@@ -1,0 +1,51 @@
+.breadcrumbs{
+    display: flex;
+    width: var(--max-width-container);
+    background-color: var(--principal2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.breadcrum{
+    position: relative;
+    height: 30px;
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breadcrum .drawing{
+    display: flex;
+    position: absolute;
+}
+
+.breadcrum p{
+    z-index: 1;
+}
+
+.breadcrum a{
+    text-decoration: none;
+}
+
+.breadcrum .drawing div:nth-child(1){
+    width: 115px;
+    font-weight: bold;
+    border-left: 15px solid var(--principal2);
+    border-top: 15px solid var(--principal-menos1);
+    border-bottom: 15px solid var(--principal-menos1); 
+}
+
+.breadcrum:first-child .drawing div:nth-child(1){
+    border-left: unset;
+}
+
+
+.breadcrum .drawing div:nth-child(2){
+    background-color: var(--principal-menos1);
+    font-weight: bold;
+    border-left: 15px solid var(--principal-menos1);
+    border-top: 15px solid var(--principal2);
+    border-bottom: 15px solid var(--principal2); 
+}
