@@ -85,3 +85,14 @@ menu .close-btn:hover{
         margin-top: 0;
     }
 }
+
+menu h2{
+    animation-name: display-from-left-to-right;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes display-from-left-to-right{
+    0% {opacity: 0; margin-left: 0;}
+    100% {opacity: 1; margin-left: 30px;}
+}
