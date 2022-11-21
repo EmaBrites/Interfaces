@@ -1,4 +1,4 @@
-nav{
+nav {
     width: 100%;
     background-color: var(--principal);
     height: 100px;
@@ -9,18 +9,21 @@ nav{
     top: 0;
     z-index: 2;
     --nav-caterories: none;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
-.nav-categories{
+.nav-categories {
     display: var(--nav-caterories);
-}
-
-.nav-categories ul{
     display: flex;
-    
 }
 
-.burger-menu{
+.nav-categories ul {
+    display: flex;
+
+}
+
+.burger-menu {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -28,26 +31,38 @@ nav{
     margin-left: 25px;
 }
 
-.burger-menu:hover{
+.burger-menu:hover {
     cursor: pointer;
 }
 
-nav div{
+nav div {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    margin: 0px 20px 0px 20px;
+}
+
+nav div a{
+    height: 80%;
     display: flex;
     align-items: center;
 }
 
+nav img{
+    height: inherit;
+}
+
 @media (min-width:769px) {
-    nav{
+    nav {
         --nav-caterories: block;
         justify-content: space-between;
     }
 
-    div.nav-categories a{
+    div.nav-categories a {
         text-decoration: none;
     }
 
-    div.nav-categories h3{
+    div.nav-categories h3 {
         width: 100px;
         height: 40px;
         display: flex;
@@ -56,11 +71,7 @@ nav div{
 
     }
 
-    nav div:first-child{
-        margin-left: 20px;
-    }
-
-    .burger-menu{
+    .burger-menu {
         width: 30px;
         height: 30px;
         position: unset;
@@ -69,7 +80,27 @@ nav div{
 }
 
 @media (min-width:1025px) {
-    div.nav-categories h3{
+    div.nav-categories h3 {
         width: 140px;
+    }
+}
+
+@keyframes scroll-header {
+    from {
+        height: 100px;
+    }
+
+    to {
+        height: 50px;
+    }
+}
+
+@keyframes scroll-top {
+    from {
+        height: 50px;
+    }
+
+    to {
+        height: 100px;
     }
 }
