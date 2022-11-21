@@ -1,37 +1,39 @@
-menu{
+menu {
     background-color: var(--principal-menos1);
     width: 100%;
     position: absolute;
-    top:100px;
+    top: 100px;
     left: 0;
     display: none;
     flex-direction: column;
     justify-content: space-evenly;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
-menu div{
+menu div {
     display: flex;
     flex-direction: column;
     height: unset;
 }
 
-.menu-items{
+.menu-items {
     justify-content: flex-start;
 }
 
-.redes-menu{
+.redes-menu {
     flex-direction: row;
     justify-content: center;
 }
 
-menu img{
+menu img {
     width: 50px;
     height: 50px;
     margin: 10px;
 }
 
 @media (min-width:769px) {
-    menu{
+    menu {
         width: 400px;
         height: 300px;
         grid-template-rows: 0.5fr 3fr 1fr 1fr;
@@ -39,30 +41,57 @@ menu img{
 }
 
 @media (min-width:1025px) {
-    menu{
+    menu {
         height: 600px;
     }
 
-    menu div:nth-child(1) img{
+    menu div:nth-child(1) img {
         width: unset;
     }
 
-    menu h2{
+    menu h2 {
         margin: 30px;
     }
 
-    menu h2:first-child{
+    menu h2:first-child {
         margin-top: 0;
     }
 }
 
-menu h2{
+menu h2 {
     animation-name: display-from-left-to-right;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
-@keyframes display-from-left-to-right{
-    0% {opacity: 0; margin-left: 0;}
-    100% {opacity: 1; margin-left: 30px;}
+@keyframes display-from-left-to-right {
+    0% {
+        opacity: 0;
+        margin-left: 0;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 30px;
+    }
+}
+
+@keyframes position-up {
+    from {
+        top: 100px;
+    }
+
+    to {
+        top: 50px;
+    }
+}
+
+@keyframes position-down {
+    from {
+        top: 50px;
+    }
+
+    to {
+        top: 100px;
+    }
 }
