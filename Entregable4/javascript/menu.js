@@ -36,7 +36,7 @@ function toogleMenuClasses(event) {
     bar2.classList.toggle("bar2-animation")
     bar3.classList.toggle("bar-animation-config")
     bar3.classList.toggle("bar3-animation")
-    menu.style.display = isMenuOpen ? "none" : "grid";
+    menu.style.display = isMenuOpen ? "none" : "flex";
     isMenuOpen = !isMenuOpen;
     event.stopPropagation()
 }
