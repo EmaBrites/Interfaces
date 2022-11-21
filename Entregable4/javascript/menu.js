@@ -3,18 +3,19 @@ const menu = document.getElementsByTagName("menu")[0];
 const bar1 = document.getElementById("bar1")
 const bar2 = document.getElementById("bar2")
 const bar3 = document.getElementById("bar3")
+var navbar = document.querySelector("nav");
 let isMenuOpen = false;
 
-burgerMenu.addEventListener("click",(event)=>{
+burgerMenu.addEventListener("click", (event) => {
     toogleMenuClasses(event);
 })
 
-menu.addEventListener("click",(event)=>{
+menu.addEventListener("click", (event) => {
     event.stopPropagation()
 })
 
-window.addEventListener("click",(event)=>{
-    if(isMenuOpen)
+window.addEventListener("click", (event) => {
+    if (isMenuOpen)
         toogleMenuClasses(event)
 })
 
@@ -28,8 +29,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-
-function toogleMenuClasses(event){
+function toogleMenuClasses(event) {
     bar1.classList.toggle("bar-animation-config")
     bar1.classList.toggle("bar1-animation")
     bar2.classList.toggle("bar-animation-config")
@@ -40,3 +40,13 @@ function toogleMenuClasses(event){
     isMenuOpen = !isMenuOpen;
     event.stopPropagation()
 }
+
+window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 50) {
+        navbar.style.animationName = "scroll-header";
+    }
+    else {
+        if(navbar.style.animationName == "scroll-header")
+        navbar.style.animationName = "scroll-top";
+    }
+})
