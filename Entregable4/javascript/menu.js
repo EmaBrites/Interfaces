@@ -3,7 +3,7 @@ const menu = document.getElementsByTagName("menu")[0];
 const bar1 = document.getElementById("bar1")
 const bar2 = document.getElementById("bar2")
 const bar3 = document.getElementById("bar3")
-var navbar = document.querySelector("nav");
+const navbar = document.querySelector("nav");
 let isMenuOpen = false;
 
 burgerMenu.addEventListener("click", (event) => {
@@ -44,9 +44,12 @@ function toogleMenuClasses(event) {
 window.addEventListener("scroll", () => {
     if (window.pageYOffset > 50) {
         navbar.style.animationName = "scroll-header";
+        menu.style.animationName = "position-up";
     }
     else {
         if(navbar.style.animationName == "scroll-header")
         navbar.style.animationName = "scroll-top";
+        if(menu.style.animationName == "position-up")
+        menu.style.animationName = "position-down";
     }
 })
