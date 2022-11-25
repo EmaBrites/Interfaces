@@ -1,33 +1,41 @@
 .hero {
     width: var(--max-width-container);
     height: 600px;
+    overflow: hidden;
 }
 
 .hero * {
     position: absolute;
-    z-index: -1;
+}
+
+.layer{
+    height: 600px;
+    width: var(--max-width-container);
 }
 
 .background-layer {
-    z-index: -2;
-    width: var(--max-width-container);
-    height: 600px;
-    left: 0px;
-    top: 150px;
-    overflow: hidden;
-    display: block;
-    object-fit: cover;
-
-    background: linear-gradient(180deg, #1877F2 0%, rgba(0, 0, 0, 0) 100%), url("../assets/capa-fondo.jpg");
+    background: linear-gradient(180deg, #1877F2 0%, rgba(0, 0, 0, 0) 100%), url("../assets/parallax-layers/background-layer.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
 }
 
 .character-layer {
-    width: 597.87px;
-    height: 500px;
-    left: 0px;
-    top: 250px;
+    background-image: url("../assets/parallax-layers/character-layer.png");
+    background-repeat: no-repeat;
+}
+
+.cloud-layer{
+    background-image: url("../assets/parallax-layers/cloud-layer.png");
+    background-repeat: no-repeat;
+}
+
+.castle-layer{
+    background-image: url("../assets/parallax-layers/castle-layer.png");
+    background-repeat: no-repeat;
+}
+
+.fog-layer{
+    background-image: url("../assets/parallax-layers/fog-layer.png");
+    background-repeat: no-repeat;
 }
 
 .logo-layer {
