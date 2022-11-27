@@ -8,7 +8,6 @@ function parallax(e) {
     for (let index = 0; index < elems.length; index++) {
         const elem = elems[index];
         let _depth = `${50 - (_mouseX - _w) * ((index+1)/100)}% ${50 - (_mouseY - _h) * ((index+1)/100)}%`;
-        console.log(_depth);
         elem.style.backgroundPosition = _depth;
     }
 }
