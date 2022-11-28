@@ -80,6 +80,18 @@
     align-items: center;
 }
 
+.action>div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: .25;
+    transition: all 1s ease;
+}
+
+.action div:hover{
+    opacity: 1;
+}
+
 .action *{
     position: static;
 }
