@@ -16,6 +16,8 @@
     top: -350px;
     color: var(--acento);
     width: 90%;
+    opacity: 0;
+    transition: all 500ms ease;
 }
 
 .feature-card p{
@@ -23,6 +25,9 @@
     left: 100px;
     top: -300px;
     width: 80%;
+    opacity: 0;
+    transition: all 500ms ease;
+    transform: translateY(100px);
 }
 
 .feature-card img{
