@@ -1,0 +1,16 @@
+.sprite {
+    width: 179px;
+    height: 250px;
+    background: url("../assets/sprite/5987784.png");
+    animation: sprite-animation 2s steps(14) infinite;
+}
+
+@keyframes sprite-animation {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -2500px;
+    }
+}
