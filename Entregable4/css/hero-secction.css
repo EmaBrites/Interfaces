@@ -81,7 +81,7 @@
 }
 
 .action>div{
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     opacity: .25;
@@ -96,8 +96,9 @@
     position: static;
 }
 
-.action div{
+.action div div{
     display: flex;
+    flex-direction: row;
 }
 
 section .text{
