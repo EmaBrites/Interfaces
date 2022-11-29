@@ -2,8 +2,6 @@ const text1 = document.getElementById("text-1")
 const text2 = document.getElementById("text-2")
 const text3 = document.getElementById("text-3")
 const img1 = document.getElementById("img-1")
-const img2 = document.getElementById("img-2")
-const img3 = document.getElementById("img-3")
 const imagesContainer = document.getElementById("images-container")
 
 window.addEventListener("scroll",()=>{
@@ -23,9 +21,7 @@ function toogleVisibility(){
         text1.classList.remove("v-hidden")
         img1.classList.remove("v-hidden")
         text2.classList.add("v-hidden")
-        img2.classList.add("v-hidden")
         text3.classList.add("v-hidden")
-        img3.classList.add("v-hidden")
         return
     }
 
@@ -33,7 +29,7 @@ function toogleVisibility(){
 
     if(yposText2 > -150 && yposText2 < + 350){
         console.log("img 2 active")
-        img1.src = "./assets/feature2.png"
+        img1.src = "./assets/story/dai1107141280jpg-37bc56_160w.jpg"
         text2.classList.remove("v-hidden")
         text1.classList.add("v-hidden")
         text3.classList.add("v-hidden")
@@ -44,7 +40,7 @@ function toogleVisibility(){
 
     if(yposText3 > -250 && yposText3 < + 350){
         console.log("img 3 active")
-        img1.src = "./assets/feature3.png"
+        img1.src = "./assets/story/dragon-age-inquisition-reveals-a-four-player-co-op-mode-1409100281339.jpg"
         text3.classList.remove("v-hidden")
         text1.classList.add("v-hidden")
         text2.classList.add("v-hidden")
