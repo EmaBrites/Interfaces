@@ -94,33 +94,54 @@
                 Explora, lidera y combate: unas decisiones complicadas definirán tu aventura, pues una única elección
                 podría cambiar el rumbo de lo que está por suceder.</h3>
         </section>
-        <section class="feature">
-            <div class="feature-card">
-                <img src="./assets/feature1.png" alt="">
-                <h1>Una narrativa cautivadora y basada en decisiones</h1>
-                <p>En Inquisition, no solo determinas a quién enviar y a cuál batalla, también tomarás decisiones
-                    importantes que forjarán el futuro de Thedas. Cada decisión tiene sus implicaciones y tus actos
-                    pueden tener resultados muy diversos. Inquisition es un viaje altamente personalizado, en el que una
-                    mala elección podría desencadenar una serie de eventos que alteren los aspectos físicos del mundo
-                    mismo; esto hace que tu mundo de Thedas, y tus héroes, sean realmente únicos.</p>
-            </div>
-            <div class="feature-card">
-                <img src="./assets/feature2.png" alt="">
-                <h1>Un mundo enorme por descubrir</h1>
-                <p>El mundo de Thedas nunca había sido tan grande o detallado; es súper amplio y está listo para que lo
-                    explores. Descubre castillos enemigos y apodérate de ellos. Desentierra cuevas ocultas infestadas de
-                    criaturas acechantes. Thedas es un mundo vasto y peligroso, pero descubrir sus secretos puede hacer
-                    la diferencia entre la victoria y la derrota.</p>
-            </div>
-            <div class="feature-card">
-                <img src="./assets/feature3.png" alt="">
-                <h1>Combate intenso y estratégico</h1>
-                <p>No hay una forma incorrecta de jugar a Dragon Age: Inquisition... excepto por la manera en que
-                    pierdes la vida. Por suerte, la vista de estrategias opcional te da una ventaja omnisciente en la
-                    batalla. El tiempo se detiene cuando planeas tu estrategia con esta vista, pero si ese no es tu
-                    estilo, puedes arrancar a toda velocidad con tu ballesta.</p>
-            </div>
-        </section>
+
+  <!-- story scrolling -->
+  <div class="story-scrolling">
+    <div id="images-container">
+      <img id="img-1" src="./assets/feature1.png" alt="" />
+
+    </div>
+    <div class="texts-container">
+      <div>
+        <div id="text-1">
+          <h1>Una narrativa cautivadora y basada en decisiones</h1>
+          <p>
+            En Inquisition, no solo determinas a quién enviar y a cuál
+            batalla, también tomarás decisiones importantes que forjarán el
+            futuro de Thedas. Cada decisión tiene sus implicaciones y tus
+            actos pueden tener resultados muy diversos. Inquisition es un
+            viaje altamente personalizado, en el que una mala elección
+            podría desencadenar una serie de eventos que alteren los
+            aspectos físicos del mundo mismo; esto hace que tu mundo de
+            Thedas, y tus héroes, sean realmente únicos.
+          </p>
+        </div>
+        <div id="text-2" class="v-hidden">
+          <h1>Un mundo enorme por descubrir</h1>
+          <p>
+            El mundo de Thedas nunca había sido tan grande o detallado; es
+            súper amplio y está listo para que lo explores. Descubre
+            castillos enemigos y apodérate de ellos. Desentierra cuevas
+            ocultas infestadas de criaturas acechantes. Thedas es un mundo
+            vasto y peligroso, pero descubrir sus secretos puede hacer la
+            diferencia entre la victoria y la derrota.
+          </p>
+        </div>
+        <div id="text-3" class="v-hidden">
+          <h1>Combate intenso y estratégico</h1>
+          <p>
+            No hay una forma incorrecta de jugar a Dragon Age:
+            Inquisition... excepto por la manera en que pierdes la vida. Por
+            suerte, la vista de estrategias opcional te da una ventaja
+            omnisciente en la batalla. El tiempo se detiene cuando planeas
+            tu estrategia con esta vista, pero si ese no es tu estilo,
+            puedes arrancar a toda velocidad con tu ballesta.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
         <section>
             <div class="carousel">
                 <!-- carrusel de personajes -->
@@ -481,6 +502,7 @@
     </footer>
     <script defer src="./javascript/menu.js"></script>
     <script defer src="./javascript/carousel-effect.js"></script>
+    <script defer src="./javascript/story-scrolling-effect.js"></script>
 </body>
 
 </html>
